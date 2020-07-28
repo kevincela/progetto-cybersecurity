@@ -1,7 +1,7 @@
 # Progetto cybersecurity
 # Tool utilizzati
 
-L'app è stata realizzata tramite [Nodejs](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web).
+L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web).
 
 # Librerie utilizzate
 
