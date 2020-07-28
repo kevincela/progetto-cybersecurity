@@ -1,0 +1,1709 @@
+{
+  "contractName": "LogFotogrammetria",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "log",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "timestamp",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "result",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "timestamp",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "result",
+          "type": "string"
+        }
+      ],
+      "name": "storeItem",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getLog",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "caller",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "timestamp",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "result",
+              "type": "string"
+            }
+          ],
+          "internalType": "struct LogFotogrammetria.LogItem[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getLength",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"getLength\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getLog\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"timestamp\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"result\",\"type\":\"string\"}],\"internalType\":\"struct LogFotogrammetria.LogItem[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"log\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"timestamp\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"result\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"timestamp\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"result\",\"type\":\"string\"}],\"name\":\"storeItem\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/kevin/progetti/progetto-cybsec/contracts/LogFotogrammetria.sol\":\"LogFotogrammetria\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/kevin/progetti/progetto-cybsec/contracts/LogFotogrammetria.sol\":{\"keccak256\":\"0x20c66566fc244b6536213da4c5d0c1b34867264e146e446b7b1500be1e9ba8bf\",\"urls\":[\"bzz-raw://a284c527fbd9919bbcbe4b9749e506499ce9122f908bbf94ef6c2a645430cbed\",\"dweb:/ipfs/QmXTYYjr4ZEf9ZtZn9RhssaA43qPEbYgLoCh3UVcBnpSCT\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506000600181905550610afc806100286000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063909e4ab614610051578063be1c766b1461006f578063e3a140831461008d578063f82c50f1146100a9575b600080fd5b6100596100dc565b60405161006691906108c4565b60405180910390f35b6100776102df565b60405161008491906108e6565b60405180910390f35b6100a760048036036100a2919081019061068e565b6102e9565b005b6100c360048036036100be91908101906106fa565b6103f3565b6040516100d39493929190610901565b60405180910390f35b60606000805480602002602001604051908101604052809291908181526020016000905b828210156102d65783829060005260206000209060040201604051806080016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561021c5780601f106101f15761010080835404028352916020019161021c565b820191906000526020600020905b8154815290600101906020018083116101ff57829003601f168201915b50505050508152602001600382018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102be5780601f10610293576101008083540402835291602001916102be565b820191906000526020600020905b8154815290600101906020018083116102a157829003601f168201915b50505050508152505081526020019060010190610100565b50505050905090565b6000600154905090565b6000604051806080016040528060015481526020013373ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815250908060018154018082558091505090600182039060005260206000209060040201600090919290919091506000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020190805190602001906103bc929190610580565b5060608201518160030190805190602001906103d9929190610580565b505050506001600081548092919060010191905055505050565b6000818154811061040057fe5b90600052602060002090600402016000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104d85780601f106104ad576101008083540402835291602001916104d8565b820191906000526020600020905b8154815290600101906020018083116104bb57829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105765780601f1061054b57610100808354040283529160200191610576565b820191906000526020600020905b81548152906001019060200180831161055957829003601f168201915b5050505050905084565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105c157805160ff19168380011785556105ef565b828001600101855582156105ef579182015b828111156105ee5782518255916020019190600101906105d3565b5b5090506105fc9190610600565b5090565b61062291905b8082111561061e576000816000905550600101610606565b5090565b90565b600082601f83011261063657600080fd5b813561064961064482610981565b610954565b9150808252602083016020830185838301111561066557600080fd5b610670838284610a4f565b50505092915050565b60008135905061068881610aa2565b92915050565b600080604083850312156106a157600080fd5b600083013567ffffffffffffffff8111156106bb57600080fd5b6106c785828601610625565b925050602083013567ffffffffffffffff8111156106e457600080fd5b6106f085828601610625565b9150509250929050565b60006020828403121561070c57600080fd5b600061071a84828501610679565b91505092915050565b600061072f838361083c565b905092915050565b61074081610a13565b82525050565b61074f81610a13565b82525050565b6000610760826109bd565b61076a81856109e0565b93508360208202850161077c856109ad565b8060005b858110156107b857848403895281516107998582610723565b94506107a4836109d3565b925060208a01995050600181019050610780565b50829750879550505050505092915050565b60006107d5826109c8565b6107df81856109f1565b93506107ef818560208601610a5e565b6107f881610a91565b840191505092915050565b600061080e826109c8565b6108188185610a02565b9350610828818560208601610a5e565b61083181610a91565b840191505092915050565b600060808301600083015161085460008601826108a6565b5060208301516108676020860182610737565b506040830151848203604086015261087f82826107ca565b9150506060830151848203606086015261089982826107ca565b9150508091505092915050565b6108af81610a45565b82525050565b6108be81610a45565b82525050565b600060208201905081810360008301526108de8184610755565b905092915050565b60006020820190506108fb60008301846108b5565b92915050565b600060808201905061091660008301876108b5565b6109236020830186610746565b81810360408301526109358185610803565b905081810360608301526109498184610803565b905095945050505050565b6000604051905081810181811067ffffffffffffffff8211171561097757600080fd5b8060405250919050565b600067ffffffffffffffff82111561099857600080fd5b601f19601f8301169050602081019050919050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000610a1e82610a25565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b82818337600083830152505050565b60005b83811015610a7c578082015181840152602081019050610a61565b83811115610a8b576000848401525b50505050565b6000601f19601f8301169050919050565b610aab81610a45565b8114610ab657600080fd5b5056fea365627a7a72315820ff3cf0e4ac06741d7a26f1e711ae2e26aeb6b6de652f92c4a678a022cb90d0066c6578706572696d656e74616cf564736f6c63430005100040",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c8063909e4ab614610051578063be1c766b1461006f578063e3a140831461008d578063f82c50f1146100a9575b600080fd5b6100596100dc565b60405161006691906108c4565b60405180910390f35b6100776102df565b60405161008491906108e6565b60405180910390f35b6100a760048036036100a2919081019061068e565b6102e9565b005b6100c360048036036100be91908101906106fa565b6103f3565b6040516100d39493929190610901565b60405180910390f35b60606000805480602002602001604051908101604052809291908181526020016000905b828210156102d65783829060005260206000209060040201604051806080016040529081600082015481526020016001820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001600282018054600181600116156101000203166002900480601f01602080910402602001604051908101604052809291908181526020018280546001816001161561010002031660029004801561021c5780601f106101f15761010080835404028352916020019161021c565b820191906000526020600020905b8154815290600101906020018083116101ff57829003601f168201915b50505050508152602001600382018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102be5780601f10610293576101008083540402835291602001916102be565b820191906000526020600020905b8154815290600101906020018083116102a157829003601f168201915b50505050508152505081526020019060010190610100565b50505050905090565b6000600154905090565b6000604051806080016040528060015481526020013373ffffffffffffffffffffffffffffffffffffffff16815260200184815260200183815250908060018154018082558091505090600182039060005260206000209060040201600090919290919091506000820151816000015560208201518160010160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060408201518160020190805190602001906103bc929190610580565b5060608201518160030190805190602001906103d9929190610580565b505050506001600081548092919060010191905055505050565b6000818154811061040057fe5b90600052602060002090600402016000915090508060000154908060010160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1690806002018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104d85780601f106104ad576101008083540402835291602001916104d8565b820191906000526020600020905b8154815290600101906020018083116104bb57829003601f168201915b505050505090806003018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156105765780601f1061054b57610100808354040283529160200191610576565b820191906000526020600020905b81548152906001019060200180831161055957829003601f168201915b5050505050905084565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106105c157805160ff19168380011785556105ef565b828001600101855582156105ef579182015b828111156105ee5782518255916020019190600101906105d3565b5b5090506105fc9190610600565b5090565b61062291905b8082111561061e576000816000905550600101610606565b5090565b90565b600082601f83011261063657600080fd5b813561064961064482610981565b610954565b9150808252602083016020830185838301111561066557600080fd5b610670838284610a4f565b50505092915050565b60008135905061068881610aa2565b92915050565b600080604083850312156106a157600080fd5b600083013567ffffffffffffffff8111156106bb57600080fd5b6106c785828601610625565b925050602083013567ffffffffffffffff8111156106e457600080fd5b6106f085828601610625565b9150509250929050565b60006020828403121561070c57600080fd5b600061071a84828501610679565b91505092915050565b600061072f838361083c565b905092915050565b61074081610a13565b82525050565b61074f81610a13565b82525050565b6000610760826109bd565b61076a81856109e0565b93508360208202850161077c856109ad565b8060005b858110156107b857848403895281516107998582610723565b94506107a4836109d3565b925060208a01995050600181019050610780565b50829750879550505050505092915050565b60006107d5826109c8565b6107df81856109f1565b93506107ef818560208601610a5e565b6107f881610a91565b840191505092915050565b600061080e826109c8565b6108188185610a02565b9350610828818560208601610a5e565b61083181610a91565b840191505092915050565b600060808301600083015161085460008601826108a6565b5060208301516108676020860182610737565b506040830151848203604086015261087f82826107ca565b9150506060830151848203606086015261089982826107ca565b9150508091505092915050565b6108af81610a45565b82525050565b6108be81610a45565b82525050565b600060208201905081810360008301526108de8184610755565b905092915050565b60006020820190506108fb60008301846108b5565b92915050565b600060808201905061091660008301876108b5565b6109236020830186610746565b81810360408301526109358185610803565b905081810360608301526109498184610803565b905095945050505050565b6000604051905081810181811067ffffffffffffffff8211171561097757600080fd5b8060405250919050565b600067ffffffffffffffff82111561099857600080fd5b601f19601f8301169050602081019050919050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b600082825260208201905092915050565b6000610a1e82610a25565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b82818337600083830152505050565b60005b83811015610a7c578082015181840152602081019050610a61565b83811115610a8b576000848401525b50505050565b6000601f19601f8301169050919050565b610aab81610a45565b8114610ab657600080fd5b5056fea365627a7a72315820ff3cf0e4ac06741d7a26f1e711ae2e26aeb6b6de652f92c4a678a022cb90d0066c6578706572696d656e74616cf564736f6c63430005100040",
+  "sourceMap": "68:702:2:-;;;280:48;8:9:-1;5:2;;;30:1;27;20:12;5:2;280:48:2;320:1;311:6;:10;;;;68:702;;;;;;",
+  "deployedSourceMap": "68:702:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;68:702:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;599:83;;;:::i;:::-;;;;;;;;;;;;;;;;688:80;;;:::i;:::-;;;;;;;;;;;;;;;;334:255;;;;;;;;;;;;;;;;:::i;:::-;;228:20;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;599:83;638:16;672:3;665:10;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;599:83;:::o;688:80::-;730:7;755:6;;748:13;;688:80;:::o;334:255::-;417:3;426:137;;;;;;;;452:6;;426:137;;;;480:10;426:137;;;;;;515:9;426:137;;;;546:6;426:137;;;417:147;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;417:147:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;574:6;;:8;;;;;;;;;;;;;334:255;;:::o;228:20::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;68:702::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;6:442:-1:-;;108:3;101:4;93:6;89:17;85:27;75:2;;126:1;123;116:12;75:2;163:6;150:20;185:65;200:49;242:6;200:49;;;185:65;;;176:74;;270:6;263:5;256:21;306:4;298:6;294:17;339:4;332:5;328:16;374:3;365:6;360:3;356:16;353:25;350:2;;;391:1;388;381:12;350:2;401:41;435:6;430:3;425;401:41;;;68:380;;;;;;;;456:130;;536:6;523:20;514:29;;548:33;575:5;548:33;;;508:78;;;;;593:578;;;734:2;722:9;713:7;709:23;705:32;702:2;;;750:1;747;740:12;702:2;813:1;802:9;798:17;785:31;836:18;828:6;825:30;822:2;;;868:1;865;858:12;822:2;888:63;943:7;934:6;923:9;919:22;888:63;;;878:73;;764:193;1016:2;1005:9;1001:18;988:32;1040:18;1032:6;1029:30;1026:2;;;1072:1;1069;1062:12;1026:2;1092:63;1147:7;1138:6;1127:9;1123:22;1092:63;;;1082:73;;967:194;696:475;;;;;;1178:241;;1282:2;1270:9;1261:7;1257:23;1253:32;1250:2;;;1298:1;1295;1288:12;1250:2;1333:1;1350:53;1395:7;1386:6;1375:9;1371:22;1350:53;;;1340:63;;1312:97;1244:175;;;;;1427:237;;1568:90;1654:3;1646:6;1568:90;;;1554:104;;1547:117;;;;;1672:103;1745:24;1763:5;1745:24;;;1740:3;1733:37;1727:48;;;1782:113;1865:24;1883:5;1865:24;;;1860:3;1853:37;1847:48;;;1983:1008;;2168:74;2236:5;2168:74;;;2255:106;2354:6;2349:3;2255:106;;;2248:113;;2384:3;2426:4;2418:6;2414:17;2409:3;2405:27;2453:76;2523:5;2453:76;;;2549:7;2577:1;2562:390;2587:6;2584:1;2581:13;2562:390;;;2649:9;2643:4;2639:20;2634:3;2627:33;2694:6;2688:13;2716:104;2815:4;2800:13;2716:104;;;2708:112;;2837:80;2910:6;2837:80;;;2827:90;;2940:4;2935:3;2931:14;2924:21;;2619:333;2609:1;2606;2602:9;2597:14;;2562:390;;;2566:14;2965:4;2958:11;;2982:3;2975:10;;2147:844;;;;;;;;;;2999:319;;3097:35;3126:5;3097:35;;;3144:61;3198:6;3193:3;3144:61;;;3137:68;;3210:52;3255:6;3250:3;3243:4;3236:5;3232:16;3210:52;;;3283:29;3305:6;3283:29;;;3278:3;3274:39;3267:46;;3077:241;;;;;;3325:339;;3433:35;3462:5;3433:35;;;3480:71;3544:6;3539:3;3480:71;;;3473:78;;3556:52;3601:6;3596:3;3589:4;3582:5;3578:16;3556:52;;;3629:29;3651:6;3629:29;;;3624:3;3620:39;3613:46;;3413:251;;;;;;3746:938;;3881:4;3876:3;3872:14;3962:4;3955:5;3951:16;3945:23;3974:63;4031:4;4026:3;4022:14;4008:12;3974:63;;;3901:142;4118:4;4111:5;4107:16;4101:23;4130:63;4187:4;4182:3;4178:14;4164:12;4130:63;;;4053:146;4277:4;4270:5;4266:16;4260:23;4329:3;4323:4;4319:14;4312:4;4307:3;4303:14;4296:38;4349:69;4413:4;4399:12;4349:69;;;4341:77;;4209:221;4505:4;4498:5;4494:16;4488:23;4557:3;4551:4;4547:14;4540:4;4535:3;4531:14;4524:38;4577:69;4641:4;4627:12;4577:69;;;4569:77;;4440:218;4675:4;4668:11;;3854:830;;;;;;4691:103;4764:24;4782:5;4764:24;;;4759:3;4752:37;4746:48;;;4801:113;4884:24;4902:5;4884:24;;;4879:3;4872:37;4866:48;;;4921:441;;5129:2;5118:9;5114:18;5106:26;;5179:9;5173:4;5169:20;5165:1;5154:9;5150:17;5143:47;5204:148;5347:4;5338:6;5204:148;;;5196:156;;5100:262;;;;;5369:213;;5487:2;5476:9;5472:18;5464:26;;5501:71;5569:1;5558:9;5554:17;5545:6;5501:71;;;5458:124;;;;;5589:707;;5823:3;5812:9;5808:19;5800:27;;5838:71;5906:1;5895:9;5891:17;5882:6;5838:71;;;5920:72;5988:2;5977:9;5973:18;5964:6;5920:72;;;6040:9;6034:4;6030:20;6025:2;6014:9;6010:18;6003:48;6065:74;6134:4;6125:6;6065:74;;;6057:82;;6187:9;6181:4;6177:20;6172:2;6161:9;6157:18;6150:48;6212:74;6281:4;6272:6;6212:74;;;6204:82;;5794:502;;;;;;;;6303:256;;6365:2;6359:9;6349:19;;6403:4;6395:6;6391:17;6502:6;6490:10;6487:22;6466:18;6454:10;6451:34;6448:62;6445:2;;;6523:1;6520;6513:12;6445:2;6543:10;6539:2;6532:22;6343:216;;;;;6566:322;;6710:18;6702:6;6699:30;6696:2;;;6742:1;6739;6732:12;6696:2;6809:4;6805:9;6798:4;6790:6;6786:17;6782:33;6774:41;;6873:4;6867;6863:15;6855:23;;6633:255;;;;6895:171;;7001:3;6993:11;;7039:4;7034:3;7030:14;7022:22;;6987:79;;;;7073:157;;7202:5;7196:12;7186:22;;7167:63;;;;7237:118;;7327:5;7321:12;7311:22;;7292:63;;;;7362:128;;7480:4;7475:3;7471:14;7463:22;;7457:33;;;;7498:198;;7648:6;7643:3;7636:19;7685:4;7680:3;7676:14;7661:29;;7629:67;;;;;7705:153;;7810:6;7805:3;7798:19;7847:4;7842:3;7838:14;7823:29;;7791:67;;;;;7867:163;;7982:6;7977:3;7970:19;8019:4;8014:3;8010:14;7995:29;;7963:67;;;;;8038:91;;8100:24;8118:5;8100:24;;;8089:35;;8083:46;;;;8136:121;;8209:42;8202:5;8198:54;8187:65;;8181:76;;;;8264:72;;8326:5;8315:16;;8309:27;;;;8344:145;8425:6;8420:3;8415;8402:30;8481:1;8472:6;8467:3;8463:16;8456:27;8395:94;;;;8498:268;8563:1;8570:101;8584:6;8581:1;8578:13;8570:101;;;8660:1;8655:3;8651:11;8645:18;8641:1;8636:3;8632:11;8625:39;8606:2;8603:1;8599:10;8594:15;;8570:101;;;8686:6;8683:1;8680:13;8677:2;;;8751:1;8742:6;8737:3;8733:16;8726:27;8677:2;8547:219;;;;;8774:97;;8862:2;8858:7;8853:2;8846:5;8842:14;8838:28;8828:38;;8822:49;;;;8879:117;8948:24;8966:5;8948:24;;;8941:5;8938:35;8928:2;;8987:1;8984;8977:12;8928:2;8922:74;",
+  "source": "pragma solidity >=0.4.22 <0.7.0;\npragma experimental ABIEncoderV2;\n\ncontract LogFotogrammetria {\n    \n    struct LogItem {\n        uint id;\n        address caller;\n        string timestamp;\n        string result;\n    }\n    \n    LogItem[] public log;\n\n    uint256 length;\n    \n    constructor() public {\n        length = 0;\n    }\n\n    function storeItem(string memory timestamp, string memory result) public {\n        log.push(LogItem({\n            id: length,\n            caller: msg.sender,\n            timestamp: timestamp,\n            result: result\n        }));\n        length++;\n    }\n    \n    function getLog() public view returns (LogItem[] memory){\n        return log;\n    }\n\n    function getLength() public view returns (uint256){\n        return length;\n    }\n}\n",
+  "sourcePath": "/home/kevin/progetti/progetto-cybsec/contracts/LogFotogrammetria.sol",
+  "ast": {
+    "absolutePath": "/home/kevin/progetti/progetto-cybsec/contracts/LogFotogrammetria.sol",
+    "exportedSymbols": {
+      "LogFotogrammetria": [
+        232
+      ]
+    },
+    "id": 233,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 168,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:2"
+      },
+      {
+        "id": 169,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:33:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 232,
+        "linearizedBaseContracts": [
+          232
+        ],
+        "name": "LogFotogrammetria",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "LogFotogrammetria.LogItem",
+            "id": 178,
+            "members": [
+              {
+                "constant": false,
+                "id": 171,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "131:7:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 170,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "131:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 173,
+                "name": "caller",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "148:14:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 172,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "148:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 175,
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "172:16:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 174,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 177,
+                "name": "result",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "198:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 176,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "198:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "LogItem",
+            "nodeType": "StructDefinition",
+            "scope": 232,
+            "src": "106:112:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 181,
+            "name": "log",
+            "nodeType": "VariableDeclaration",
+            "scope": 232,
+            "src": "228:20:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage",
+              "typeString": "struct LogFotogrammetria.LogItem[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 179,
+                "name": "LogItem",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 178,
+                "src": "228:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_LogItem_$178_storage_ptr",
+                  "typeString": "struct LogFotogrammetria.LogItem"
+                }
+              },
+              "id": 180,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "228:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage_ptr",
+                "typeString": "struct LogFotogrammetria.LogItem[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 183,
+            "name": "length",
+            "nodeType": "VariableDeclaration",
+            "scope": 232,
+            "src": "255:14:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 182,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "255:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 190,
+              "nodeType": "Block",
+              "src": "301:27:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 188,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 186,
+                      "name": "length",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 183,
+                      "src": "311:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 187,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "320:1:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "311:10:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 189,
+                  "nodeType": "ExpressionStatement",
+                  "src": "311:10:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 191,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 184,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "291:2:2"
+            },
+            "returnParameters": {
+              "id": 185,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "301:0:2"
+            },
+            "scope": 232,
+            "src": "280:48:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 213,
+              "nodeType": "Block",
+              "src": "407:182:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 202,
+                            "name": "length",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 183,
+                            "src": "452:6:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 203,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 284,
+                              "src": "480:3:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 204,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "480:10:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 205,
+                            "name": "timestamp",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 193,
+                            "src": "515:9:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 206,
+                            "name": "result",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 195,
+                            "src": "546:6:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "id": 201,
+                          "name": "LogItem",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 178,
+                          "src": "426:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_LogItem_$178_storage_ptr_$",
+                            "typeString": "type(struct LogFotogrammetria.LogItem storage pointer)"
+                          }
+                        },
+                        "id": 207,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "id",
+                          "caller",
+                          "timestamp",
+                          "result"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "426:137:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_LogItem_$178_memory",
+                          "typeString": "struct LogFotogrammetria.LogItem memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_LogItem_$178_memory",
+                          "typeString": "struct LogFotogrammetria.LogItem memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 198,
+                        "name": "log",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 181,
+                        "src": "417:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage",
+                          "typeString": "struct LogFotogrammetria.LogItem storage ref[] storage ref"
+                        }
+                      },
+                      "id": 200,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "417:8:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_LogItem_$178_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct LogFotogrammetria.LogItem storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 208,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "417:147:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 209,
+                  "nodeType": "ExpressionStatement",
+                  "src": "417:147:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 211,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "574:8:2",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 210,
+                      "name": "length",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 183,
+                      "src": "574:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 212,
+                  "nodeType": "ExpressionStatement",
+                  "src": "574:8:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 214,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "storeItem",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 196,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 193,
+                  "name": "timestamp",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 214,
+                  "src": "353:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 192,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "353:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 195,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 214,
+                  "src": "378:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 194,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "378:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "352:47:2"
+            },
+            "returnParameters": {
+              "id": 197,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "407:0:2"
+            },
+            "scope": 232,
+            "src": "334:255:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 222,
+              "nodeType": "Block",
+              "src": "655:27:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 220,
+                    "name": "log",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 181,
+                    "src": "672:3:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage",
+                      "typeString": "struct LogFotogrammetria.LogItem storage ref[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 219,
+                  "id": 221,
+                  "nodeType": "Return",
+                  "src": "665:10:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 223,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLog",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "614:2:2"
+            },
+            "returnParameters": {
+              "id": 219,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 218,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 223,
+                  "src": "638:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_LogItem_$178_memory_$dyn_memory_ptr",
+                    "typeString": "struct LogFotogrammetria.LogItem[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 216,
+                      "name": "LogItem",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 178,
+                      "src": "638:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_LogItem_$178_storage_ptr",
+                        "typeString": "struct LogFotogrammetria.LogItem"
+                      }
+                    },
+                    "id": 217,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "638:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage_ptr",
+                      "typeString": "struct LogFotogrammetria.LogItem[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "637:18:2"
+            },
+            "scope": 232,
+            "src": "599:83:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 230,
+              "nodeType": "Block",
+              "src": "738:30:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 228,
+                    "name": "length",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 183,
+                    "src": "755:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 227,
+                  "id": 229,
+                  "nodeType": "Return",
+                  "src": "748:13:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 231,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLength",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 224,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "706:2:2"
+            },
+            "returnParameters": {
+              "id": 227,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 226,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 231,
+                  "src": "730:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 225,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "730:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "729:9:2"
+            },
+            "scope": 232,
+            "src": "688:80:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 233,
+        "src": "68:702:2"
+      }
+    ],
+    "src": "0:771:2"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/kevin/progetti/progetto-cybsec/contracts/LogFotogrammetria.sol",
+    "exportedSymbols": {
+      "LogFotogrammetria": [
+        232
+      ]
+    },
+    "id": 233,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 168,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:2"
+      },
+      {
+        "id": 169,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:33:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 232,
+        "linearizedBaseContracts": [
+          232
+        ],
+        "name": "LogFotogrammetria",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "LogFotogrammetria.LogItem",
+            "id": 178,
+            "members": [
+              {
+                "constant": false,
+                "id": 171,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "131:7:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 170,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "131:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 173,
+                "name": "caller",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "148:14:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 172,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "148:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 175,
+                "name": "timestamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "172:16:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 174,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 177,
+                "name": "result",
+                "nodeType": "VariableDeclaration",
+                "scope": 178,
+                "src": "198:13:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 176,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "198:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "LogItem",
+            "nodeType": "StructDefinition",
+            "scope": 232,
+            "src": "106:112:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 181,
+            "name": "log",
+            "nodeType": "VariableDeclaration",
+            "scope": 232,
+            "src": "228:20:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage",
+              "typeString": "struct LogFotogrammetria.LogItem[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 179,
+                "name": "LogItem",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 178,
+                "src": "228:7:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_LogItem_$178_storage_ptr",
+                  "typeString": "struct LogFotogrammetria.LogItem"
+                }
+              },
+              "id": 180,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "228:9:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage_ptr",
+                "typeString": "struct LogFotogrammetria.LogItem[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 183,
+            "name": "length",
+            "nodeType": "VariableDeclaration",
+            "scope": 232,
+            "src": "255:14:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 182,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "255:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 190,
+              "nodeType": "Block",
+              "src": "301:27:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 188,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 186,
+                      "name": "length",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 183,
+                      "src": "311:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "30",
+                      "id": 187,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "320:1:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "311:10:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 189,
+                  "nodeType": "ExpressionStatement",
+                  "src": "311:10:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 191,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 184,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "291:2:2"
+            },
+            "returnParameters": {
+              "id": 185,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "301:0:2"
+            },
+            "scope": 232,
+            "src": "280:48:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 213,
+              "nodeType": "Block",
+              "src": "407:182:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 202,
+                            "name": "length",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 183,
+                            "src": "452:6:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 203,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 284,
+                              "src": "480:3:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 204,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "480:10:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 205,
+                            "name": "timestamp",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 193,
+                            "src": "515:9:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 206,
+                            "name": "result",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 195,
+                            "src": "546:6:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "id": 201,
+                          "name": "LogItem",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 178,
+                          "src": "426:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_LogItem_$178_storage_ptr_$",
+                            "typeString": "type(struct LogFotogrammetria.LogItem storage pointer)"
+                          }
+                        },
+                        "id": 207,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [
+                          "id",
+                          "caller",
+                          "timestamp",
+                          "result"
+                        ],
+                        "nodeType": "FunctionCall",
+                        "src": "426:137:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_LogItem_$178_memory",
+                          "typeString": "struct LogFotogrammetria.LogItem memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_LogItem_$178_memory",
+                          "typeString": "struct LogFotogrammetria.LogItem memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 198,
+                        "name": "log",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 181,
+                        "src": "417:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage",
+                          "typeString": "struct LogFotogrammetria.LogItem storage ref[] storage ref"
+                        }
+                      },
+                      "id": 200,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "417:8:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_LogItem_$178_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct LogFotogrammetria.LogItem storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 208,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "417:147:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 209,
+                  "nodeType": "ExpressionStatement",
+                  "src": "417:147:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 211,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "574:8:2",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 210,
+                      "name": "length",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 183,
+                      "src": "574:6:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 212,
+                  "nodeType": "ExpressionStatement",
+                  "src": "574:8:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 214,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "storeItem",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 196,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 193,
+                  "name": "timestamp",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 214,
+                  "src": "353:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 192,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "353:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 195,
+                  "name": "result",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 214,
+                  "src": "378:20:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 194,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "378:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "352:47:2"
+            },
+            "returnParameters": {
+              "id": 197,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "407:0:2"
+            },
+            "scope": 232,
+            "src": "334:255:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 222,
+              "nodeType": "Block",
+              "src": "655:27:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 220,
+                    "name": "log",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 181,
+                    "src": "672:3:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage",
+                      "typeString": "struct LogFotogrammetria.LogItem storage ref[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 219,
+                  "id": 221,
+                  "nodeType": "Return",
+                  "src": "665:10:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 223,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLog",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 215,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "614:2:2"
+            },
+            "returnParameters": {
+              "id": 219,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 218,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 223,
+                  "src": "638:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_LogItem_$178_memory_$dyn_memory_ptr",
+                    "typeString": "struct LogFotogrammetria.LogItem[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "contractScope": null,
+                      "id": 216,
+                      "name": "LogItem",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 178,
+                      "src": "638:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_LogItem_$178_storage_ptr",
+                        "typeString": "struct LogFotogrammetria.LogItem"
+                      }
+                    },
+                    "id": 217,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "638:9:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_LogItem_$178_storage_$dyn_storage_ptr",
+                      "typeString": "struct LogFotogrammetria.LogItem[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "637:18:2"
+            },
+            "scope": 232,
+            "src": "599:83:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 230,
+              "nodeType": "Block",
+              "src": "738:30:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 228,
+                    "name": "length",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 183,
+                    "src": "755:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 227,
+                  "id": 229,
+                  "nodeType": "Return",
+                  "src": "748:13:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 231,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLength",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 224,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "706:2:2"
+            },
+            "returnParameters": {
+              "id": 227,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 226,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 231,
+                  "src": "730:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 225,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "730:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "729:9:2"
+            },
+            "scope": 232,
+            "src": "688:80:2",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 233,
+        "src": "68:702:2"
+      }
+    ],
+    "src": "0:771:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.3",
+  "updatedAt": "2020-07-28T09:06:55.243Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
