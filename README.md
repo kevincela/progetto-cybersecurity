@@ -10,11 +10,13 @@ Tale scelta ci ha permesso di utilizzare un database, per definizione di cloud, 
 
 ## Implementazione di IPFS
 
-# Guida all'installazione
+# Funzionamento della web app
+
+# Guida all'installazione della web app
 
 Tutte le librerie utilizzate sono nel package.json. Per installarle, aprire il terminale e posizionarsi nella cartella del progetto. A questo punto, dopo essersi assicurato di aver installato npm correttamente, è necessario eseguire questo comando:
 
 ```bash
 npm install 
 ```
-# Funzionamento della web app
+
