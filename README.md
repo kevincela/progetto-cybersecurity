@@ -16,4 +16,4 @@ npm install
 Avendo l’esigenza di realizzare un database contenente le informazioni degli utenti abbiamo utilizzato il servizio Cloud fornito da MongoDB.
 Tale scelta ci ha permesso di utilizzare un database, per definizione di cloud, ridondante e affidabile.
 
-# Creazione di IPFS
+# Implementazione di IPFS
