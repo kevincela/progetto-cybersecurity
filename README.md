@@ -3,12 +3,12 @@
 
 L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web).
 
-# Creazione del database MongoDB
+## Creazione del database MongoDB
 
 Avendo l’esigenza di realizzare un database contenente le informazioni degli utenti abbiamo utilizzato il servizio Cloud fornito da MongoDB.
 Tale scelta ci ha permesso di utilizzare un database, per definizione di cloud, ridondante e affidabile.
 
-# Implementazione di IPFS
+## Implementazione di IPFS
 
 # Guida all'installazione
 
