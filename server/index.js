@@ -4,6 +4,9 @@ const path = require('path');
 const mongoose = require("mongoose");
 const config = require("./config");
 const loginRouter = require("./routes/login");
+const gdlRouter = require("./routes/gdl");
+const imagesRouter = require("./routes/images");
+const logRouter = require("./routes/log");
 const session = require('express-session');
 const isLoggedIn = require('./middleware/login');
 
@@ -21,13 +24,19 @@ app.use(session({
   cookie: { secure: false }
 }));
 app.use('/', loginRouter);
-
-app.get('/', (req, res) => {
-  res.render('index');
-});
+app.use('/gdl', gdlRouter);
+app.use('/images', imagesRouter);
+app.use('/log', logRouter);
 
 app.get('/user', isLoggedIn, (req, res) => {
   res.render("user", { user: req.session.user });
+});
+
+app.get('/', (req, res) => {
+  if(req.session.user)
+    return res.redirect("/user");
+  else
+    return res.redirect("/login");
 });
 
 app.listen(3000, () => {

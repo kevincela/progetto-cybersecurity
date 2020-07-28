@@ -37,7 +37,7 @@ router.post('/login', (req, res) => {
         } else {
             bcrypt.compare(req.body.password, user.password, (err, result) => {
                 if(result && !err) {
-                    //HANDLE LOGIN
+                    //TODO: vedere associazione blockchain
                     req.session.user = {
                         username: req.body.username
                     };
@@ -48,6 +48,13 @@ router.post('/login', (req, res) => {
             });
         }
     });
+});
+
+router.get("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if(err) console.log(err);
+    })
+    return res.redirect("/login");
 });
 
 module.exports = router;
