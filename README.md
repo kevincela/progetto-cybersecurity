@@ -20,10 +20,13 @@ Tutte le librerie utilizzate sono nel package.json. Per installarle, aprire il t
 npm install 
 ```
 
-Una volta che sono state installate correttamente tutte le dipendenze, da terminale bisogna trovarsi nella cartella ./server ed eseguire il comando nodejs index.js. A questo punto, andando nel browser e digitando l'indirizzo 
-'''
+Una volta che sono state installate correttamente tutte le dipendenze, da terminale bisogna trovarsi nella cartella ./server ed eseguire il comando 
+```nodejs index.js
+```
+A questo punto, andando nel browser e digitando l'indirizzo 
+```
 http://localhost:3000/
-'''
+```
 
 ## Varie root
 
