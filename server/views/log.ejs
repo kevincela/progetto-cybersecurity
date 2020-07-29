@@ -1,12 +1,46 @@
 <html>
-    <head>
-        <title>Log servizio di fotogrammetria</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    </head>
+    <%- include('partials/head') %>
     <body>
         <%- include('partials/navbar') %>
-        <div class="container mt-5">
+        <div class="container mt-4">
             <h1>Log servizio di fotogrammetria</h1>
+
+            <table class="table mt-4">
+                <thead>
+                  <tr>
+                    <th scope="col">Utente</th>
+                    <th scope="col">Account blockchain</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Esito</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">tizio</th>
+                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
+                    <td>20/03/2020 13:20:04</td>
+                    <td>SUCCESS</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">tizio</th>
+                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
+                    <td>20/03/2020 13:20:04</td>
+                    <td>SUCCESS</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">tizio</th>
+                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
+                    <td>20/03/2020 13:20:04</td>
+                    <td>ERROR</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">tizio</th>
+                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
+                    <td>20/03/2020 13:20:04</td>
+                    <td>SUCCESS</td>
+                  </tr>
+                </tbody>
+            </table>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
