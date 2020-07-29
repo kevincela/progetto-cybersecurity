@@ -28,6 +28,7 @@ A questo punto, andando nel browser e digitando l'indirizzo
 ```
 http://localhost:3000/
 ```
+è possibile utilizzare la web app.
 
 ## Varie root
 
