@@ -9,6 +9,8 @@ const imagesRouter = require("./routes/images");
 const logRouter = require("./routes/log");
 const session = require('express-session');
 const isLoggedIn = require('./middleware/login');
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
 
 mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -18,12 +20,14 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+app.use(cookieParser('testsecret'));
 app.use(session({
   secret: 'testsecret',
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false, maxAge: 60 * 60000 }
 }));
+app.use(flash());
 app.use('/', loginRouter);
 app.use('/gdl', gdlRouter);
 app.use('/images', imagesRouter);

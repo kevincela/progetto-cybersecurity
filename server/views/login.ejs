@@ -5,6 +5,11 @@
             <div class="row mt-4">
                 <div class="col-sm-12">
                     <h1>Login</h1>
+                    <% for(let msg of errorMsg) { %>
+                        <div class="alert alert-danger mt-3 mb-3" role="alert">
+                            <%= msg %>
+                        </div>
+                    <% } %>
                     <form action="/login" method="POST">
                         <div class="form-group">
                           <label for="username">Username</label>

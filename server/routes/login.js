@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const flash = require("connect-flash");
 
 /* router.get('/user/:username/:password', (req, res) => {
     const saltRounds = 10;
@@ -27,12 +28,13 @@ const bcrypt = require("bcrypt");
 }); */
 
 router.get('/login', (req, res) => {
-    res.render('login', { title: "Login" });
+    res.render('login', { title: "Login", errorMsg: req.flash("error") });
 });
 
 router.post('/login', (req, res) => {
     User.findOne({ username: req.body.username }, (err, user) => {
         if(err || !user) {
+            req.flash("error", "Utente o password errati, riprovare!");
             return res.redirect("/");
         } else {
             bcrypt.compare(req.body.password, user.password, (err, result) => {
@@ -43,6 +45,7 @@ router.post('/login', (req, res) => {
                     };
                     return res.redirect("/")
                 } else {
+                    req.flash("error", "Utente o password errati, riprovare!");
                     return res.redirect("/login");
                 }
             });
