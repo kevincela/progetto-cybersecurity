@@ -22,7 +22,7 @@ npm install
 
 Una volta che sono state installate correttamente tutte le dipendenze, da terminale bisogna trovarsi nella cartella ./server ed eseguire il comando 
 ```
-nodejs index.js
+nodejs index
 ```
 A questo punto, andando nel browser e digitando l'indirizzo 
 ```
@@ -30,5 +30,6 @@ http://localhost:3000/
 ```
 è possibile utilizzare la web app.
 
-## Varie root
+## Inizializzazione blockchain Quorum
 
+Per la realizzazione di questo progetto è stata la blockchain [Quorum](https://www.goquorum.com/). Per avviare la blockchain, abbiamo usato [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da  J.P. Morgan, che permette di avviare una rete quorum locale.
