@@ -116,3 +116,4 @@ dist
 .pnp.*
 
 server/config.js
+drone/images/*

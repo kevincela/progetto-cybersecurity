@@ -4,6 +4,21 @@
         <%- include('partials/navbar') %>
         <div class="container mt-4">
             <h1>Immagini scattate dal drone</h1>
+
+            <div class="row">
+                <% for(let image of images) { %>
+                    <div class="card" style="width: 30%; margin-right: 1%; margin-left: 1%; margin-top: 20px">
+                        <img src="https://ipfs.io/ipfs/<%=image.hashIpfs%>" class="card-img-top">
+                        <div class="card-body">
+                          <p class="card-text"><strong>Data di caricamento:</strong> <%= convertDate(image.addTime) %></p>
+                          <a href="#" class="btn btn-primary">Invoca servizio fotogrammetria</a>
+                        </div>
+                    </div>
+                    <!-- <img src="https://ipfs.io/ipfs/<%=image.hashIpfs%>" width="300px">
+                    <p>hash: <%= image.hashIpfs %></p>
+                    <p>addTime: <%= convertDate(image.addTime) %></p> -->
+                <% } %>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
