@@ -3,8 +3,12 @@
     <body>
         <%- include('partials/navbar') %>
         <div class="container mt-4">
-            <h1>Benvenuto, <%= user.username %>!</h1>
-            <p>Selezionare una delle opzioni nella navbar per continuare!</p>
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4">Benvenuto, <%= user.username %>!</h1>
+                <p class="lead">Selezionare una delle opzioni nella navbar per continuare!</p>
+              </div>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

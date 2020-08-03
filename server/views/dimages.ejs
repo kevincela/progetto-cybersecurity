@@ -11,12 +11,9 @@
                         <img src="https://ipfs.io/ipfs/<%=image.hashIpfs%>" class="card-img-top">
                         <div class="card-body">
                           <p class="card-text"><strong>Data di caricamento:</strong> <%= convertDate(image.addTime) %></p>
-                          <a href="#" class="btn btn-primary">Invoca servizio fotogrammetria</a>
+                          <a style="width: 100%;" href="/images/<%=image.hashIpfs%>" class="btn btn-primary">Dettaglio Immagine</a>
                         </div>
                     </div>
-                    <!-- <img src="https://ipfs.io/ipfs/<%=image.hashIpfs%>" width="300px">
-                    <p>hash: <%= image.hashIpfs %></p>
-                    <p>addTime: <%= convertDate(image.addTime) %></p> -->
                 <% } %>
             </div>
         </div>

@@ -6,4 +6,8 @@ router.get("/", isLoggedIn, (req, res) => {
     res.render("gdl", { title: "Giornale dei lavori" });
 });
 
+router.get("/invoke/:hash", isLoggedIn, (req, res) => {
+    res.send("INVOCAZIONE SERVIZIO FOTOGRAMMETRIA SU " + req.params.hash);
+});
+
 module.exports = router;

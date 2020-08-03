@@ -1,10 +1,13 @@
 const Web3 = require("web3");
+const fs = require("fs");
 
-//TODO: RISTRUTTURARE PER USARE UN CONTRACT GENERICO
-class BlockchainService {
-    constructor(account) {
+class BlockchainContractService {
+    constructor(contract, contractAddress, account) {
         //TODO: inizializzazione account con eventuale chiave privata
-        this.web3 = new Web3("http://localhost:22000");
+        const ContractFile = JSON.parse(fs.readFileSync(`../build/contracts/${contract}.json`));
+        let web3 = new Web3("http://localhost:22000");
+        this.contract = new web3.eth.Contract(ContractFile.abi, contractAddress);
+        this.account = account;
     }
 
     async call(method) {
@@ -15,3 +18,5 @@ class BlockchainService {
         return method.send({ from: this.account });
     }
 }
+
+module.exports = BlockchainContractService
