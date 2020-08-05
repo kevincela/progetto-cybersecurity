@@ -37,4 +37,4 @@ http://localhost:3000/
 
 ## Inizializzazione blockchain Quorum
 
-Per la realizzazione di questo progetto è stata la blockchain [Quorum](https://www.goquorum.com/). Per avviare la blockchain, abbiamo usato [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da J.P. Morgan e permette di avviare una rete Quorum locale facilmente.
+Per la realizzazione di questo progetto è stata la blockchain [Quorum](https://www.goquorum.com/). Per avviare la blockchain, abbiamo usato [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da **J.P. Morgan** e permette di avviare una rete Quorum locale facilmente.
