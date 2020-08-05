@@ -12,12 +12,22 @@
                     <h2>Informazioni:</h2>
                     <ul class="list-group mt-4">
                         <li class="list-group-item text-break"><strong>Hash IPFS:</strong> <%= image.hashIpfs %></li>
-                        <li class="list-group-item text-break"><strong>Data di aggiunta:</strong> <%= convertDate(image.addTime) %></li>
+                        <li class="list-group-item text-break"><strong>Nome del file:</strong> <%= image.fileName %></li>
+                        <li class="list-group-item text-break"><strong>Data di creazione:</strong> <%= convertDate(image.creationTime) %></li>
+                        <li class="list-group-item text-break"><strong>Data di caricamento:</strong> <%= convertDate(image.addTime) %></li>
                     </ul>
-                    <div class="mt-3">
-                        <a href="/gdl/invoke/<%=image.hashIpfs%>" class="col-sm-12 btn btn-lg btn-primary">Invoca servizio fotogrammetria e compila Giornale dei Lavori</a>
-                    </div>
                 </div>
+            </div>
+            <div class="form-container">
+                <h1 class="mt-3">Aggiunta al giornale dei lavori</h1>
+                <form method="POST" action="/gdl/invoke">
+                    <input type="hidden" name="hash" value="<%=image.hashIpfs%>" id="hash">
+                    <div class="form-group">
+                        <label for="annotazioni">Annotazioni</label>
+                        <textarea class="form-control" name="annotazioni" id="annotazioni" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-lg btn-primary">Invoca servizio fotogrammetria e invia al Giornale dei Lavori</button>
+                </form>
             </div>
             <%- include('partials/metadata_root') %>
         </div>

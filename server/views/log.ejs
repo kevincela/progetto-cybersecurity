@@ -8,37 +8,21 @@
             <table class="table mt-4">
                 <thead>
                   <tr>
-                    <th scope="col">Utente</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Account blockchain</th>
                     <th scope="col">Data</th>
                     <th scope="col">Esito</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <% for(let item of log) { %> 
                   <tr>
-                    <th scope="row">tizio</th>
-                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
-                    <td>20/03/2020 13:20:04</td>
-                    <td>SUCCESS</td>
+                    <th scope="row"><%= item.id %></th>
+                    <td><%= item.caller %></td>
+                    <td><%= convertDate(item.timestamp) %></td>
+                    <td><%= item.result %></td>
                   </tr>
-                  <tr>
-                    <th scope="row">tizio</th>
-                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
-                    <td>20/03/2020 13:20:04</td>
-                    <td>SUCCESS</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">tizio</th>
-                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
-                    <td>20/03/2020 13:20:04</td>
-                    <td>ERROR</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">tizio</th>
-                    <td>0xed9d02e382b34818e88b88a309c7fe71e65f419d</td>
-                    <td>20/03/2020 13:20:04</td>
-                    <td>SUCCESS</td>
-                  </tr>
+                <% } %> 
                 </tbody>
             </table>
         </div>

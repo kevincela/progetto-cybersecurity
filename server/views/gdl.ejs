@@ -4,6 +4,21 @@
         <%- include('partials/navbar') %>
         <div class="container mt-4">
             <h1>Giornale dei lavori</h1>
+
+            <div class="row">
+                <% for(let item of items) { %>
+                    <div class="card" style="width: 30%; margin-right: 1%; margin-left: 1%; margin-top: 20px">
+                        <img src="https://ipfs.io/ipfs/<%=item.hashImmagine%>" class="card-img-top">
+                        <div class="card-body">
+                          <p class="card-text"><strong>Id:</strong> <%= item.id %></p>
+                          <p class="card-text"><strong>Data di creazione:</strong> <%= convertDate(item.timestamp) %></p>
+                          <p class="card-text"><strong>Misure:</strong> <%= item.misure %></p>
+                          <p class="card-text"><strong>Annotazioni:</strong> <%= item.annotazioni %></p>
+                          <a style="width: 100%;" href="" class="btn btn-primary">Dettaglio Entry</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
