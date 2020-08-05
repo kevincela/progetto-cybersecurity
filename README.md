@@ -1,7 +1,7 @@
 # Progetto cybersecurity
 # Tool utilizzati per lo sviluppo
 
-L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web).
+L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web) e, per poter funzionare, è necessario che venga eseguito su una distribuzione **GNU/Linux**.
 
 ## Creazione del database MongoDB
 Avendo l’esigenza di realizzare un database contenente le informazioni degli utenti abbiamo utilizzato il servizio Cloud fornito da **MongoDB**.
