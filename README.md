@@ -1,7 +1,7 @@
 # Progetto cybersecurity
 # Tool utilizzati per lo sviluppo
 
-L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web).
+L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web) e, per poter funzionare, è necessario che venga eseguito su una distribuzione **GNU/Linux**.
 
 ## Creazione del database MongoDB
 Avendo l’esigenza di realizzare un database contenente le informazioni degli utenti abbiamo utilizzato il servizio Cloud fornito da **MongoDB**.
@@ -37,4 +37,4 @@ http://localhost:3000/
 
 ## Inizializzazione blockchain Quorum
 
-Per la realizzazione di questo progetto è stata la blockchain [Quorum](https://www.goquorum.com/). Per avviare la blockchain, abbiamo usato [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da J.P. Morgan e permette di avviare una rete Quorum locale facilmente.
+Per la realizzazione di questo progetto è stata la blockchain [Quorum](https://www.goquorum.com/). Per avviare la blockchain, abbiamo usato [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da **J.P. Morgan** e permette di avviare una rete Quorum locale facilmente.
