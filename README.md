@@ -26,6 +26,7 @@ ed eseguire quest'ultimo comando:
 ```bash
 cd go-ipfs && sudo bash install.sh && ipfs init && ipfs daemon
 ```
+Ulteriori informazioni sono disponibili al seguente [link](https://docs.ipfs.io/how-to/command-line-quick-start/#install-ipfs).
 
 ## Caricamento delle immagini su IPFS e Quorum da parte del drone
 Per caricare le immagini del drone su IPFS e i loro hash sulla blockchain *Quorum*, è necessario creare una cartella chiamata *images* all'interno della cartella *drone*. A questo punto, dalla cartella *drone* è necessario eseguire:
