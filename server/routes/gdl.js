@@ -24,20 +24,50 @@ router.get("/:id", isLoggedIn, async (req, res) => {
 });
 
 router.post("/invoke/", isLoggedIn, async (req, res) => {
-    let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
-    let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
-    let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
-    let measures = null;
     try {
-        measures = await PhotogrammetryService.invoke();
-    } catch (error) {
-        await photogrammetryLogService.storeItem("ERROR");
-        return res.redirect("/images")
+        let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
+        let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
+        let measures = null;
+        let image = await imagestorageservice.getImageFromHash(req.body.hash);
+
+        if(image.state != 0) {
+            return res.redirect("/images");
+        }
+
+        try {
+            measures = await PhotogrammetryService.invoke();
+        } catch (error) {
+            await photogrammetryLogService.storeItem(0, req.body.hash, "");
+            return res.redirect("/images")
+        }
+        await photogrammetryLogService.storeItem(1, req.body.hash, measures);
+        await imagestorageservice.setProcessedImage(req.body.hash);
+        return res.redirect(`/images/${req.body.hash}`);
+    } catch(error) {
+        res.redirect("/images");
     }
-    await photogrammetryLogService.storeItem("SUCCESS");
-    await giornaleDeiLavoriService.storeItem(req.body.hash, measures, req.body.annotazioni);
-    await imagestorageservice.setCompletedImage(req.body.hash);
-    return res.redirect("/gdl/");
+});
+
+router.post("/add", isLoggedIn, async (req, res) => {
+    try {
+        let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
+        let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
+        let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
+
+        let image = await imagestorageservice.getImageFromHash(req.body.hash);
+        if(image.state != 1) {
+            return res.redirect("/gdl/")
+        }
+
+        let measures = await photogrammetryLogService.getMeasureFromHash(req.body.hash);
+
+        await giornaleDeiLavoriService.storeItem(req.body.hash, measures, req.body.annotazioni);
+        await imagestorageservice.setCompletedImage(req.body.hash);
+        return res.redirect("/gdl/");
+    } catch(error) {
+        //FLASH + REDIRECT INDIETRO?
+        res.redirect("/gdl");
+    }
 });
 
 module.exports = router;

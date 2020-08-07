@@ -13,7 +13,11 @@
                           <p class="card-text"><strong>Nome file:</strong> <%= image.fileName %></p>
                           <p class="card-text"><strong>Data di creazione:</strong> <%= convertDate(image.creationTime) %></p>
                           <p class="card-text"><strong>Data di caricamento:</strong> <%= convertDate(image.addTime) %></p>
-                          <a style="width: 100%;" href="/images/<%=image.hashIpfs%>" class="btn btn-primary">Dettaglio Immagine</a>
+                          <% if(image.state == 0) { %> 
+                            <a style="width: 100%;" href="/images/<%=image.hashIpfs%>" class="btn btn-primary">Dettaglio Immagine</a>
+                          <% } else if(image.state == 1) { %> 
+                            <a style="width: 100%;" href="/images/<%=image.hashIpfs%>" class="btn btn-warning">Completa Inserimento</a>
+                          <% } %> 
                         </div>
                     </div>
                 <% } %>

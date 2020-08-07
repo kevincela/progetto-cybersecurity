@@ -16,9 +16,14 @@ class PhotogrammetryLogService extends BlockchainContractService {
         return log;
     }
 
-    async storeItem(result) {
+    async getMeasureFromHash(hash) {
+        let measure = await this.call(this.contract.methods.getMeasureFromHash(hash));
+        return measure;
+    }
+
+    async storeItem(result, hash, misure) {
         let timestamp = new Date().toISOString();
-        return this.send(this.contract.methods.storeItem(timestamp, result));
+        return this.send(this.contract.methods.storeItem(timestamp, result, hash, misure));
     }
     
 }
