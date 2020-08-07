@@ -2,30 +2,6 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
-const flash = require("connect-flash");
-
-/* router.get('/user/:username/:password', (req, res) => {
-    const saltRounds = 10;
-      bcrypt.genSalt(saltRounds, (err, salt) => {
-        bcrypt.hash(req.params.password, salt, (err, hash) => {
-          if(!err) {
-            const user = new User({
-              username: req.params.username,
-              password: hash,
-              salt: salt,
-              account: "bene"
-            });
-            user.save((err, user) => {
-              if(err) {
-                console.log(err);
-              } else {
-                res.send(user);
-              }
-            })
-          }
-        })
-      })
-}); */
 
 router.get('/login', (req, res) => {
     res.render('login', { title: "Login", errorMsg: req.flash("error") });
@@ -41,9 +17,10 @@ router.post('/login', (req, res) => {
                 if(result && !err) {
                     //TODO: vedere associazione blockchain
                     req.session.user = {
-                        username: req.body.username
+                        username: req.body.username,
+                        account: user.account
                     };
-                    return res.redirect("/")
+                    return res.redirect("/");
                 } else {
                     req.flash("error", "Utente o password errati, riprovare!");
                     return res.redirect("/login");

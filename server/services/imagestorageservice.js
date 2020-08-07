@@ -1,9 +1,14 @@
-const BlockchainContractService = require("./blockchainservice")
+const BlockchainContractService = require("./blockchainservice");
+const Contract = require("../models/Contract");
 
 class ImageStorageService extends BlockchainContractService {
-    constructor(accountAddress) {
-        //aggiungere retrieval address blockchain
-        super("ImageStorage", "0xcB2299eA32fC5Db76B638BEe5bC081BAab2F21d0", accountAddress);
+    constructor(contractAddress, accountAddress) {
+        super("ImageStorage", contractAddress, accountAddress);
+    }
+
+    static async getInstance(accountAddress) {
+        let contract = await Contract.findOne({ name: "ImageStorage" });
+        return new ImageStorageService(contract.address, accountAddress);
     }
 
     async getImages() {
@@ -17,6 +22,10 @@ class ImageStorageService extends BlockchainContractService {
 
     async setCompletedImage(hash) {
         return this.send(this.contract.methods.setCompletedImage(hash));
+    }
+
+    async storeImages(imageHashes, fileNames, creationDates, timestamp) {
+        return this.send(this.contract.methods.storeImages(imageHashes, fileNames, creationDates, timestamp));
     }
 
     async getImageFromHash(hash) {

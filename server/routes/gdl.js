@@ -8,15 +8,16 @@ const ImageStorageService = require("../services/imagestorageservice");
 const GDLService = require("../services/gdlservice");
 
 router.get("/", isLoggedIn, async (req, res) => {
-    let giornaleDeiLavoriService = new GDLService("0xed9d02e382b34818e88b88a309c7fe71e65f419d");
+    let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
+    console.log(giornaleDeiLavoriService)
     let items = await giornaleDeiLavoriService.getGiornale();
     res.render("gdl", { title: "Giornale dei lavori", items: items, convertDate: convertDate });
 });
 
 router.post("/invoke/", isLoggedIn, async (req, res) => {
-    let photogrammetryLogService = new PhotogrammetryLogService("0xed9d02e382b34818e88b88a309c7fe71e65f419d");
-    let giornaleDeiLavoriService = new GDLService("0xed9d02e382b34818e88b88a309c7fe71e65f419d");
-    let imagestorageservice = new ImageStorageService("0xed9d02e382b34818e88b88a309c7fe71e65f419d");
+    let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
+    let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
+    let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
     let measures = null;
     try {
         measures = await PhotogrammetryService.invoke();

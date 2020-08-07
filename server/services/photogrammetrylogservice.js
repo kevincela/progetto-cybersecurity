@@ -1,9 +1,14 @@
 const BlockchainContractService = require("./blockchainservice");
+const Contract = require("../models/Contract");
 
 class PhotogrammetryLogService extends BlockchainContractService {
-    constructor(accountAddress) {
-        //aggiungere retrieval address blockchain
-        super("LogFotogrammetria", "0x9AC8A5eFC282aFab3B2a7286704F232767645733", accountAddress);
+    constructor(contractAddress, accountAddress) {
+        super("LogFotogrammetria", contractAddress, accountAddress);
+    }
+
+    static async getInstance(accountAddress) {
+        let contract = await Contract.findOne({ name: "LogFotogrammetria" });
+        return new PhotogrammetryLogService(contract.address, accountAddress);
     }
 
     async getLog() {

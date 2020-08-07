@@ -4,6 +4,9 @@ const IpfsHttpClient = require('ipfs-http-client');
 const path = require("path");
 const exif = require("exif").ExifImage;
 const { globSource } = IpfsHttpClient;
+const mongoose = require("mongoose");
+const config = require("../server/config");
+const Contract = require("../server/models/Contract");
 
 function getExifData(path) {
     return new Promise((resolve, reject) => {
@@ -22,10 +25,13 @@ function getExifData(path) {
 
 async function uploadImages() {
     const ImageStorage = JSON.parse(fs.readFileSync("../build/contracts/ImageStorage.json"));
+    mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
     const ipfs = IpfsHttpClient();
     let web3 = new Web3("http://localhost:22001");
+    let accounts = await web3.eth.getAccounts();
+    let contract = Contract.findOne({ name: "ImageStorage" });
+    let ImageStorageContract = new web3.eth.Contract(ImageStorage.abi, contract.address);
 
-    let ImageStorageContract = new web3.eth.Contract(ImageStorage.abi, '0xcB2299eA32fC5Db76B638BEe5bC081BAab2F21d0');
     let imageHashes = [];
     let fileNames = [];
     let creationDates = [];
@@ -50,12 +56,17 @@ async function uploadImages() {
     console.log(imageHashes, timestamp);
 
     ImageStorageContract.methods.storeImages(imageHashes, fileNames, creationDates, timestamp)
-    .send({from: '0xcA843569e3427144cEad5e4d5999a3D0cCF92B8e'}).then(result => {
+    .send({from: accounts[0]}).then(result => {
         console.log(result);
     });
 
+    // let result = await imageStorageService.storeImages(imageHashes, fileNames, creationDates, timestamp);
+    // console.log(result);
+
+
+
     /* ImageStorageContract.methods.getImages()
-    .call({from: '0xcA843569e3427144cEad5e4d5999a3D0cCF92B8e'}).then(result => {
+    .call({from: accounts[0]}).then(result => {
         console.log(result);
     }); */
 }

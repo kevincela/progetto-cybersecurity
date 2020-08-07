@@ -3,7 +3,7 @@ const fs = require("fs");
 
 class BlockchainContractService {
     constructor(contract, contractAddress, account) {
-        //TODO: inizializzazione account con eventuale chiave privata
+        //TODO: inizializzazione account con eventuale chiave privata?
         const ContractFile = JSON.parse(fs.readFileSync(`../build/contracts/${contract}.json`));
         let web3 = new Web3("http://localhost:22000");
         this.contract = new web3.eth.Contract(ContractFile.abi, contractAddress);

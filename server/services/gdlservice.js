@@ -1,9 +1,14 @@
 const BlockchainContractService = require("./blockchainservice");
+const Contract = require("../models/Contract");
 
 class GDLService extends BlockchainContractService {
-    constructor(accountAddress) {
-        //aggiungere retrieval address blockchain
-        super("GiornaleDeiLavori", "0xAC9061dDF61500407AC8c1d6D1f14271d2C94B0a", accountAddress);
+    constructor(contractAddress, accountAddress) {
+        super("GiornaleDeiLavori", contractAddress, accountAddress);
+    }
+
+    static async getInstance(accountAddress) {
+        let contract = await Contract.findOne({ name: "GiornaleDeiLavori" });
+        return new GDLService(contract.address, accountAddress);
     }
 
     async getGiornale() {

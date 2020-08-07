@@ -1,7 +1,10 @@
-pragma solidity >=0.4.22 <0.7.0;
+pragma solidity >=0.4.22 <0.7.1;
 pragma experimental ABIEncoderV2;
 
 contract ImageStorage {
+
+    address owner;
+    address drone;
     
     enum ImageState { UnProcessed, Processed, Completed }
     
@@ -24,7 +27,9 @@ contract ImageStorage {
 
     uint length;
     
-    constructor() public {
+    constructor(address droneAddress) public {
+        owner = msg.sender;
+        drone = droneAddress;
         length = 0;
     }
 

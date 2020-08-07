@@ -1,7 +1,9 @@
-pragma solidity >=0.4.22 <0.7.0;
+pragma solidity >=0.4.22 <0.7.1;
 pragma experimental ABIEncoderV2;
 
 contract GiornaleDeiLavori {
+
+    address owner;
     
     struct GiornaleItem {
         uint id;
@@ -10,16 +12,21 @@ contract GiornaleDeiLavori {
         string misure;
         string annotazioni;
     }
+
+    constructor() public {
+        owner = msg.sender;
+        length = 0;
+    }
+
+    modifier restricted() {
+        if (msg.sender == owner) _;
+    }
     
     GiornaleItem[] public giornale;
 
     uint256 length;
-    
-    constructor() public {
-        length = 0;
-    }
 
-    function storeItem(string memory imageHash, string memory timestamp, string memory misure, string memory annotazioni) public {
+    function storeItem(string memory imageHash, string memory timestamp, string memory misure, string memory annotazioni) public restricted {
         giornale.push(GiornaleItem({
             id: length,
             hashImmagine: imageHash,
