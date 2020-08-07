@@ -7,11 +7,14 @@ const Contract = require("../server/models/Contract");
 const Web3 = require("web3");
 
 module.exports = async (deployer) => {
-  // let web3 = new Web3("http://localhost:22001");
-  // let accounts = await web3.eth.getAccounts();
+  let web3 = new Web3("http://localhost:22001");
+  let accounts = await web3.eth.getAccounts();
 
-  mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
-  await deployer.deploy(ImageStorage);
+  await mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+  await Contract.deleteMany({});
+
+  await deployer.deploy(ImageStorage, accounts[0]);
   await deployer.deploy(GiornaleDeiLavori);
   await deployer.deploy(LogFotogrammetria);
   let IS = await ImageStorage.deployed();

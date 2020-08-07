@@ -4,7 +4,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 router.get('/login', (req, res) => {
-    res.render('login', { title: "Login", errorMsg: req.flash("error") });
+    res.render('login', { title: "Login",  user: req.session.user, errorMsg: req.flash("error") });
 });
 
 router.post('/login', (req, res) => {

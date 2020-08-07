@@ -25,11 +25,13 @@ function getExifData(path) {
 
 async function uploadImages() {
     const ImageStorage = JSON.parse(fs.readFileSync("../build/contracts/ImageStorage.json"));
-    mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
     const ipfs = IpfsHttpClient();
+
     let web3 = new Web3("http://localhost:22001");
     let accounts = await web3.eth.getAccounts();
-    let contract = Contract.findOne({ name: "ImageStorage" });
+    let contract = await Contract.findOne({ name: "ImageStorage" });
+    console.log(contract.address);
     let ImageStorageContract = new web3.eth.Contract(ImageStorage.abi, contract.address);
 
     let imageHashes = [];

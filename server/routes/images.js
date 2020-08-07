@@ -9,6 +9,7 @@ router.get("/", isLoggedIn, async (req, res) => {
     let images = await imagestorageservice.getImages();
     res.render("dimages", { 
         title: "Immagini scattate dal drone", 
+        user: req.session.user,
         images: images, 
         convertDate: convertDate
     });
@@ -21,6 +22,7 @@ router.get("/:hash", isLoggedIn, async (req, res) => {
         if(image && image.hashIpfs == req.params.hash) {
             res.render("dimages_show", {
                 title: "Dettaglio Immagine",
+                user: req.session.user,
                 image: image,
                 convertDate: convertDate
             });
