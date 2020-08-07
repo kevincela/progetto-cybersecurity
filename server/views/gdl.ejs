@@ -14,7 +14,7 @@
                           <p class="card-text"><strong>Data di creazione:</strong> <%= convertDate(item.timestamp) %></p>
                           <p class="card-text"><strong>Misure:</strong> <%= item.misure %></p>
                           <p class="card-text"><strong>Annotazioni:</strong> <%= item.annotazioni %></p>
-                          <a style="width: 100%;" href="" class="btn btn-primary">Dettaglio Entry</a>
+                          <a style="width: 100%;" href="/gdl/<%= item.id %> " class="btn btn-primary">Dettaglio Entry</a>
                         </div>
                     </div>
                 <% } %>

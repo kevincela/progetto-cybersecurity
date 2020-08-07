@@ -9,9 +9,18 @@ const GDLService = require("../services/gdlservice");
 
 router.get("/", isLoggedIn, async (req, res) => {
     let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
-    console.log(giornaleDeiLavoriService)
     let items = await giornaleDeiLavoriService.getGiornale();
     res.render("gdl", { title: "Giornale dei lavori", items: items, convertDate: convertDate });
+});
+
+router.get("/:id", isLoggedIn, async (req, res) => {
+    let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
+    try {
+        let item = await giornaleDeiLavoriService.getItem(req.params.id);
+        res.render("gdl_show", { title: "Descrizione GDL", item: item, convertDate: convertDate });
+    } catch (error) {
+        res.redirect("/gdl/");
+    }
 });
 
 router.post("/invoke/", isLoggedIn, async (req, res) => {

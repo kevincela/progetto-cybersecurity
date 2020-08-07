@@ -20,6 +20,11 @@ class GDLService extends BlockchainContractService {
         let timestamp = new Date().toISOString();
         return this.send(this.contract.methods.storeItem(hash, timestamp, measures, annotazioni));
     }
+
+    async getItem(index) {
+        let item = await this.call(this.contract.methods.giornale(index));
+        return item;
+    }
     
 }
 
