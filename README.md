@@ -9,7 +9,7 @@ Tale scelta ci ha permesso di utilizzare un *database*, per definizione di *clou
 
 ## Avvio della blockchain *Quorum*
 
-Una componente chiave del nostro progetto è stato l'uso della blockchain [*Quorum*](https://www.goquorum.com/). Per poter utilizzare la web app, è necessario avviare la blockchain in locale. È possibile farlo facilmente tramite [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da **J.P. Morgan**.
+Una componente chiave del nostro progetto è stato l'uso della blockchain [*Quorum*](https://www.goquorum.com/). Per poter utilizzare la web app, è necessario avviare la blockchain in locale. È possibile farlo facilmente tramite [quorum-wizard](https://github.com/jpmorganchase/quorum-wizard), realizzato direttamente da **J.P. Morgan**. Le dipendenze sono *Node.js*, *npm* e *openjdk-11-jre*.
 
 ## Implementazione di IPFS
 
