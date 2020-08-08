@@ -22,22 +22,24 @@
                 <div class="form-container">
                     <form method="POST" action="/gdl/invoke">
                         <input type="hidden" name="hash" value="<%=image.hashIpfs%>" id="hash">
-                        <button class="btn btn-lg btn-primary">Invoca il servizio di fotogrammetria</button>
+                        <button class="mt-4 col-sm-12 btn btn-lg btn-primary">Invoca il servizio di fotogrammetria</button>
                     </form>
                 </div>
             <% } %>
             <% if(image.state == 1) { %>
                 <div class="form-container">
-                    <h1 class="mt-3">Misure ottenute:</h1>
-                    <%= measures %> 
                     <h1 class="mt-3">Aggiunta al giornale dei lavori</h1>
+                    <h2 class="mt-3 mb-3">Misure ottenute:</h1>
+                    <% for(let line of measures.split("\n")) { %>
+                        <p><%= line %></p>
+                    <% } %>
+                    <h2 class="mt-3">Annotazioni:</h1>
                     <form method="POST" action="/gdl/add">
                         <input type="hidden" name="hash" value="<%=image.hashIpfs%>" id="hash">
-                        <div class="form-group">
-                            <label for="annotazioni">Annotazioni</label>
-                            <textarea class="form-control" name="annotazioni" id="annotazioni" rows="3"></textarea>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="annotazioni" id="annotazioni" placeholder="Inserire qui le annotazioni" rows="3"></textarea>
                         </div>
-                        <button class="btn btn-lg btn-primary">Invia al Giornale dei Lavori</button>
+                        <button class="col-sm-12 btn btn-lg btn-primary">Invia al Giornale dei Lavori</button>
                     </form>
                 </div>
             <% } %>

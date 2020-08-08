@@ -22,5 +22,8 @@
     "ipfs-http-client": "^45.0.0",
     "mongoose": "^5.9.26",
     "web3": "^1.2.11"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0"
   }
 }

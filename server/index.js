@@ -20,9 +20,9 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-app.use(cookieParser('testsecret'));
+app.use(cookieParser(config.secret));
 app.use(session({
-  secret: 'testsecret',
+  secret: config.secret,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false, maxAge: 60 * 60000 }

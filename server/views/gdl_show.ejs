@@ -23,7 +23,9 @@
             <div class="form-container">
                 <h1 class="mt-3">Informazioni sull'oggetto</h1>
                 <h2>Misure:</h2>
-                <p><%= item.misure %></p>
+                <% for(let line of item.misure.split("\n")) { %>
+                    <p><%= line %></p>
+                <% } %>
                 <h2>Annotazioni:</h2>
                 <p><%= item.annotazioni %></p>
             </div>

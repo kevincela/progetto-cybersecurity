@@ -7,6 +7,7 @@ const { globSource } = IpfsHttpClient;
 const mongoose = require("mongoose");
 const config = require("../server/config");
 const Contract = require("../server/models/Contract");
+const { exit } = require("process");
 
 function getExifData(path) {
     return new Promise((resolve, reject) => {
@@ -54,23 +55,15 @@ async function uploadImages() {
     console.log(imageHashes);
     console.log(creationDates);
     console.log(fileNames);
-    timestamp = new Date().toISOString();
+    let timestamp = new Date().toISOString();
     console.log(imageHashes, timestamp);
 
-    ImageStorageContract.methods.storeImages(imageHashes, fileNames, creationDates, timestamp)
-    .send({from: accounts[0]}).then(result => {
-        console.log(result);
-    });
+    let result = await ImageStorageContract.methods
+                                           .storeImages(imageHashes, fileNames, creationDates, timestamp)
+                                           .send({from: accounts[0]});
 
-    // let result = await imageStorageService.storeImages(imageHashes, fileNames, creationDates, timestamp);
-    // console.log(result);
-
-
-
-    /* ImageStorageContract.methods.getImages()
-    .call({from: accounts[0]}).then(result => {
-        console.log(result);
-    }); */
+    console.log(result);
+    exit(0);
 }
 
 uploadImages();
