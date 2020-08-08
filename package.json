@@ -21,7 +21,9 @@
     "express-session": "^1.17.1",
     "ipfs-http-client": "^45.0.0",
     "mongoose": "^5.9.26",
-    "web3": "^1.2.11"
+    "morgan": "^1.10.0",
+    "web3": "^1.2.11",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "eslint": "^7.6.0"

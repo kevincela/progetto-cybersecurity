@@ -11,6 +11,10 @@ const session = require('express-session');
 const isLoggedIn = require('./middleware/login');
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
+const morgan = require("morgan");
+const fs = require("fs");
+
+let accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs', 'requests.log'), { flags: 'a' })
 
 mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -28,6 +32,7 @@ app.use(session({
   cookie: { secure: false, maxAge: 60 * 60000 }
 }));
 app.use(flash());
+app.use(morgan('combined', { stream: accessLogStream }));
 app.use('/', loginRouter);
 app.use('/gdl', gdlRouter);
 app.use('/images', imagesRouter);

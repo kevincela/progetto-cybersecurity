@@ -34,7 +34,6 @@ module.exports = async (deployer) => {
 
   await Contract.insertMany(contracts);
   
-  //TODO: salvare gli indirizzi su mongo
   console.log("INDIRIZZO IMAGESTORAGE: " + IS.address)
   console.log("INDIRIZZO GIORNALE DEI LAVORI: " + GDL.address)
   console.log("INDIRIZZO LOG FOTOGRAMMETRIA: " + SF.address)

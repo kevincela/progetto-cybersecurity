@@ -6,6 +6,7 @@ const PhotogrammetryService = require("../services/photogrammetryservice");
 const PhotogrammetryLogService = require("../services/photogrammetrylogservice");
 const ImageStorageService = require("../services/imagestorageservice");
 const GDLService = require("../services/gdlservice");
+const logger = require("../logger");
 
 router.get("/", isLoggedIn, async (req, res) => {
     let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
@@ -25,6 +26,7 @@ router.get("/:id", isLoggedIn, async (req, res) => {
 
 router.post("/invoke/", isLoggedIn, async (req, res) => {
     try {
+        logger.info(`Invocazione del servizio di fotogrammetria da parte di ${req.session.user.username} con account ${req.session.user.account}`);
         let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
         let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
         let measures = null;
@@ -38,12 +40,14 @@ router.post("/invoke/", isLoggedIn, async (req, res) => {
             measures = await PhotogrammetryService.invoke();
         } catch (error) {
             await photogrammetryLogService.storeItem(0, req.body.hash, "");
+            logger.error(`Fallimento invocazione del servizio di fotogrammetria per l'immagine ${req.body.hash}`);
             return res.redirect("/images")
         }
         await photogrammetryLogService.storeItem(1, req.body.hash, measures);
         await imagestorageservice.setProcessedImage(req.body.hash);
         return res.redirect(`/images/${req.body.hash}`);
     } catch(error) {
+        logger.error(`Errore durante invocazione del servizio di fotogrammetria. Hash: ${req.body.hash}`);
         res.redirect("/images");
     }
 });
@@ -56,16 +60,17 @@ router.post("/add", isLoggedIn, async (req, res) => {
 
         let image = await imagestorageservice.getImageFromHash(req.body.hash);
         if(image.state != 1) {
-            return res.redirect("/gdl/")
+            return res.redirect("/gdl/");
         }
 
         let measures = await photogrammetryLogService.getMeasureFromHash(req.body.hash);
 
         await giornaleDeiLavoriService.storeItem(req.body.hash, measures, req.body.annotazioni);
         await imagestorageservice.setCompletedImage(req.body.hash);
+        logger.info(`Aggiunta dell'immagine ${req.body.hash} al gdl effettuata da ${req.session.user.username}`);
         return res.redirect("/gdl/");
     } catch(error) {
-        //FLASH + REDIRECT INDIETRO?
+        logger.error(`Errore durante l'aggiunta al giornale dei lavori. Hash: ${req.body.hash}`);
         res.redirect("/gdl");
     }
 });
