@@ -13,6 +13,7 @@ const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const morgan = require("morgan");
 const fs = require("fs");
+const csurf = require('csurf')
 
 let accessLogStream = fs.createWriteStream(path.join(__dirname, 'logs', 'requests.log'), { flags: 'a' })
 
@@ -33,6 +34,7 @@ app.use(session({
 }));
 app.use(flash());
 app.use(morgan('combined', { stream: accessLogStream }));
+app.use(csurf({ cookie: true }));
 app.use('/', loginRouter);
 app.use('/gdl', gdlRouter);
 app.use('/images', imagesRouter);

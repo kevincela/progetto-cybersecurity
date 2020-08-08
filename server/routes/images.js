@@ -31,7 +31,8 @@ router.get("/:hash", isLoggedIn, async (req, res) => {
                 user: req.session.user,
                 image: image,
                 measures: measure,
-                convertDate: convertDate
+                convertDate: convertDate,
+                csrfToken: req.csrfToken()
             });
         }
         else return res.redirect("/images");

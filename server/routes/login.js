@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const logger = require("../logger");
 
 router.get('/login', (req, res) => {
-    res.render('login', { title: "Login",  user: req.session.user, errorMsg: req.flash("error") });
+    res.render('login', { title: "Login",  user: req.session.user, errorMsg: req.flash("error"), csrfToken: req.csrfToken() });
 });
 
 router.post('/login', (req, res) => {
