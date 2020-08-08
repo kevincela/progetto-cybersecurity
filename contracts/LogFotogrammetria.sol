@@ -2,12 +2,16 @@ pragma solidity >=0.4.22 <0.7.0;
 pragma experimental ABIEncoderV2;
 
 contract LogFotogrammetria {
+
+    mapping(string => string) hashToMeasure;
     
     struct LogItem {
         uint id;
+        string hashImmagine;
         address caller;
         string timestamp;
-        string result;
+        // 0 = ERROR, 1 = SUCCESS
+        uint result;
     }
     
     LogItem[] public log;
@@ -18,18 +22,27 @@ contract LogFotogrammetria {
         length = 0;
     }
 
-    function storeItem(string memory timestamp, string memory result) public {
+    function storeItem(string memory timestamp, uint result, string memory hashImmagine, string memory misure) public {
         log.push(LogItem({
             id: length,
+            hashImmagine: hashImmagine,
             caller: msg.sender,
             timestamp: timestamp,
             result: result
         }));
         length++;
+
+        if(result == 1) {
+            hashToMeasure[hashImmagine] = misure;
+        }
     }
     
     function getLog() public view returns (LogItem[] memory){
         return log;
+    }
+
+    function getMeasureFromHash(string memory hashImmagine) public view returns (string memory) {
+        return hashToMeasure[hashImmagine];
     }
 
     function getLength() public view returns (uint256){
