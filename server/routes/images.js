@@ -12,7 +12,8 @@ router.get("/", isLoggedIn, async (req, res) => {
         title: "Immagini scattate dal drone", 
         user: req.session.user,
         images: images, 
-        convertDate: convertDate
+        convertDate: convertDate,
+        errorMsg: req.flash("error")
     });
 });
 
@@ -37,6 +38,7 @@ router.get("/:hash", isLoggedIn, async (req, res) => {
         }
         else return res.redirect("/images");
     } catch (error) {
+        req.flash("error", "Si è verificato un problema con la visualizzazione dell'immagine.");
         return res.redirect("/images");
     }
 });

@@ -5,6 +5,12 @@
         <div class="container mt-4">
             <h1>Giornale dei lavori</h1>
 
+            <% for(let msg of errorMsg) { %>
+                <div class="alert alert-danger mt-3 mb-3" role="alert">
+                    <%= msg %>
+                </div>
+            <% } %>
+
             <div class="row">
                 <% for(let item of items) { %>
                     <div class="card" style="width: 30%; margin-right: 1%; margin-left: 1%; margin-top: 20px">
