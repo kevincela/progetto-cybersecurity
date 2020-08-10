@@ -20,7 +20,7 @@
             </div>
             <% if(image.state == 0) { %>
                 <div class="form-container">
-                    <form method="POST" action="/gdl/invoke">
+                    <form method="POST" action="/gdl/invoke" onsubmit="return confirm('Sei sicuro di voler invocare il servizio di fotogrammetria?');">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <input type="hidden" name="hash" value="<%=image.hashIpfs%>" id="hash">
                         <button class="mt-4 col-sm-12 btn btn-lg btn-primary">Invoca il servizio di fotogrammetria</button>
@@ -35,7 +35,7 @@
                         <p><%= line %></p>
                     <% } %>
                     <h2 class="mt-3">Annotazioni:</h1>
-                    <form method="POST" action="/gdl/add">
+                    <form method="POST" action="/gdl/add" onsubmit="return confirm('Vuoi davvero aggiungere l\'immagine al giornale dei lavori?');">
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                         <input type="hidden" name="hash" value="<%=image.hashIpfs%>" id="hash">
                         <div class="form-group mt-3">

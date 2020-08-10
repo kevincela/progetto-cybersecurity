@@ -17,8 +17,8 @@
                         <img src="https://ipfs.io/ipfs/<%=item.hashImmagine%>" class="card-img-top">
                         <div class="card-body">
                           <p class="card-text"><strong>Id:</strong> <%= item.id %></p>
-                          <p class="card-text"><strong>Data di creazione:</strong> <%= convertDate(item.timestamp) %></p>
-                          <a style="width: 100%;" href="/gdl/<%= item.id %> " class="btn btn-primary">Dettaglio Entry</a>
+                          <p class="card-text"><strong>Data di aggiunta:</strong> <%= convertDate(item.timestamp) %></p>
+                          <a style="width: 100%;" href="/gdl/<%= item.id %>" class="btn btn-primary">Mostra dettagli</a>
                         </div>
                     </div>
                 <% } %>

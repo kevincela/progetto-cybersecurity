@@ -4,7 +4,7 @@ function setMetadata(hash) {
     metadataContainer.classList.add("list-group", "hidden", "mt-4");
     let toggleMetadataButton = document.createElement("button");
     toggleMetadataButton.classList.add("col-sm-12", "btn", "btn-primary", "btn-lg");
-    toggleMetadataButton.innerHTML = "Mostra/Nascondi Metadati";
+    toggleMetadataButton.innerHTML = "Mostra Metadati";
 
     $(this).getExifFromUrl(`https://ipfs.io/ipfs/${hash}`, function(exif) {
         if(Object.keys(exif).length !== 0) {
@@ -21,6 +21,12 @@ function setMetadata(hash) {
     });
 
     toggleMetadataButton.addEventListener("click", (e) => {
-        metadataContainer.classList.toggle("hidden");
+        if(metadataContainer.classList.contains("hidden")) {
+            metadataContainer.classList.remove("hidden");
+            toggleMetadataButton.innerText = "Nascondi Metadati";
+        } else {
+            metadataContainer.classList.add("hidden");
+            toggleMetadataButton.innerText = "Mostra Metadati";
+        }
     });
 }
