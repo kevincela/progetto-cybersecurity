@@ -3,7 +3,7 @@
 
 L'app è stata realizzata tramite [Node.js](https://nodejs.org/it/) (un framework Javascript) e [Express](https://expressjs.com/it/) (un framework per applicazioni web) e, per poter funzionare, è necessario che venga eseguito su una distribuzione **GNU/Linux x64** in quanto il seguente **README** non consente la prova su altri sistemi.
 
-## Creazione del database MongoDB
+## Utilizzo del database MongoDB
 Avendo l’esigenza di realizzare un database contenente le informazioni di accesso degli utenti, abbiamo utilizzato il servizio Cloud fornito da **MongoDB**.
 Tale scelta ci ha permesso di utilizzare un *database*, per definizione di *cloud*, ridondante e affidabile. All'interno del *database* le password sono state salvate criptate tramite [*bcrypt*](https://it.wikipedia.org/wiki/Bcrypt). Per poter effettuare la connessione al database, è necessario che all'interno della cartella *server* sia presente file *config.js* contenente la configurazione necessaria.
 
@@ -28,6 +28,20 @@ cd go-ipfs && sudo bash install.sh && ipfs init && ipfs daemon
 ```
 Ulteriori informazioni sono disponibili al seguente [link](https://docs.ipfs.io/how-to/command-line-quick-start/#install-ipfs).
 
+## Truffle
+
+Per effettuare il *deploy* dei contratti sulla blockchain *Quorum* abbiamo utilizzato [*Truffle*](https://www.trufflesuite.com/). 
+
+### Uso di Truffle
+
+Per utilizzare *Truffle*, è necessario installarlo tramite il comando:
+```bash
+npm install -g truffle
+```
+Dopo averlo installato, è necessario posizionarsi nella cartella principale del progetto ed eseguire il comando:
+```bash
+truffle migrate
+```
 ## Caricamento delle immagini su IPFS e Quorum da parte del drone
 Per caricare le immagini del drone su IPFS e i loro hash sulla blockchain *Quorum*, è necessario creare una cartella chiamata *images* all'interno della cartella *drone*. A questo punto, dalla cartella *drone* è necessario eseguire:
 ```bash
