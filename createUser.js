@@ -23,7 +23,6 @@ async function createUser() {
                   const user = new User({
                     username: username,
                     password: hash,
-                    salt: salt,
                     account: accounts[0]
                   });
                   user.save((err, user) => {
