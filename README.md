@@ -15,7 +15,7 @@ npm install
 Avendo l’esigenza di realizzare un database contenente le informazioni di accesso degli utenti, abbiamo utilizzato il servizio Cloud fornito da **MongoDB**.
 Tale scelta ci ha permesso di utilizzare un *database*, per definizione di *cloud*, ridondante e affidabile. All'interno del *database* le password sono state salvate criptate tramite [*bcrypt*](https://it.wikipedia.org/wiki/Bcrypt). Per poter effettuare la connessione al database, è necessario che all'interno della cartella *server* sia presente file *config.js* contenente la configurazione necessaria.
 
-## Inizializzazione del file di configurazione
+### Inizializzazione del file di configurazione
 
 Prima di procedere con le fasi successive per l'avvio dell'applicazione, è necessario creare il file *config.js* all'interno della cartella *server*, usato per ottenere informazioni di rilievo quali l'URL del servizio MongoDB e la stringa usata per cifrare i cookie. Il file ha la seguente struttura:
 
@@ -79,9 +79,11 @@ node uploadImages.js
 ```
 per effettuare il caricamento delle immagini all'interno della cartella su IPFS, e salvare i relativi hash all'interno della blockchain. Per l'inserimento delle immagini all'interno della blockchain viene fatto uso dell'account associato al secondo nodo, che rappresenta l'account del drone. 
 
+NB: le immagini caricate dal drone devono essere complete di metadati altrimenti il caricamento non avviene.
+
 ## Creazione di un account associato al direttore dei lavori
 
-Prima di poter avviare la web app è necessario innanzitutto creare uno o più account che possano essere utilizzati, da parte del direttori dei lavori, per il corretto funzionamento del servizio. Nella cartella di root del progetto è presente uno script, denominato `createUser.js`, che consente la creazione di un account per l'utente. Dati lo username e la password, lo script procederà all'inserimento dell'utente, con la password opportunamente criptata tramite la funzione di hash bcrypt, e inserirà, assieme all'utente, anche il rispettivo account della blockchain, corrispondente di default all'account associato al primo nodo della rete. Il comando per eseguire lo script è il seguente:
+Prima di poter avviare la web app è necessario innanzitutto creare uno o più account che possano essere utilizzati, da parte del direttori dei lavori, per il corretto funzionamento del servizio. Nella cartella di root del progetto è presente uno script, denominato `createUser.js`, che consente la creazione di un account per l'utente. Dati lo username e la password, lo script procederà all'inserimento dell'utente, con la password opportunamente criptata tramite la funzione di hash *bcrypt*, e inserirà, assieme all'utente, anche il rispettivo account della blockchain, corrispondente di default all'account associato al primo nodo della rete. Il comando per eseguire lo script è il seguente:
 ```
 node createUser.js <username> <password>
 ```
@@ -97,3 +99,6 @@ per l'avvio del server. A questo punto, andando nel browser e digitando l'indiri
 http://localhost:3000/
 ```
 è possibile utilizzare la web app.
+
+# Progettazione e implementazione del progetto
+Al seguente [link](https://github.com/kevincela/progetto-cybersecurity/blob/master/relazione.pdf) è possibile trovare informazioni dettagliate riguardo la progettazione e l'implementazione di questo progetto.
