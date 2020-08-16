@@ -1,7 +1,9 @@
-pragma solidity >=0.4.22 <0.7.0;
+pragma solidity >=0.4.22 <0.7.1;
 pragma experimental ABIEncoderV2;
 
 contract LogFotogrammetria {
+
+    address owner;
 
     mapping(string => string) hashToMeasure;
     
@@ -19,10 +21,15 @@ contract LogFotogrammetria {
     uint256 length;
     
     constructor() public {
+        owner = msg.sender;
         length = 0;
     }
 
-    function storeItem(string memory timestamp, uint result, string memory hashImmagine, string memory misure) public {
+    modifier restricted() {
+        if (msg.sender == owner) _;
+    }
+
+    function storeItem(string memory timestamp, uint result, string memory hashImmagine, string memory misure) public restricted {
         log.push(LogItem({
             id: length,
             hashImmagine: hashImmagine,

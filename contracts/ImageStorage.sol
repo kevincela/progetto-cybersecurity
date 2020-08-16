@@ -33,7 +33,15 @@ contract ImageStorage {
         length = 0;
     }
 
-    function storeImage(string memory newImageHash, string memory fileName, string memory creationTimestamp, string memory addTimestamp) public {
+    modifier dlOnly() {
+        if (msg.sender == owner) _;
+    }
+    
+    modifier restricted() {
+        if (msg.sender == owner || msg.sender == drone) _;
+    }
+
+    function storeImage(string memory newImageHash, string memory fileName, string memory creationTimestamp, string memory addTimestamp) public restricted {
         if(!hashToArray[newImageHash].isData) {
             images.push(Image({
                 hashIpfs: newImageHash,
@@ -50,7 +58,7 @@ contract ImageStorage {
         }
     }
     
-    function storeImages(string[] memory hashes, string[] memory fileNames, string[] memory creationTimestamp, string memory addTimestamp) public {
+    function storeImages(string[] memory hashes, string[] memory fileNames, string[] memory creationTimestamp, string memory addTimestamp) public restricted {
         for(uint i = 0; i < hashes.length; i++) {
             if(!hashToArray[hashes[i]].isData) {
                 images.push(Image({
@@ -69,12 +77,12 @@ contract ImageStorage {
         }
     }
     
-    function setProcessedImage(string memory hash) public {
+    function setProcessedImage(string memory hash) public dlOnly {
         assert(hashToArray[hash].isData);
         images[hashToArray[hash].index].state = ImageState.Processed;
     }
     
-    function setCompletedImage(string memory hash) public {
+    function setCompletedImage(string memory hash) public dlOnly {
         assert(hashToArray[hash].isData);
         images[hashToArray[hash].index].state = ImageState.Completed;
     }
