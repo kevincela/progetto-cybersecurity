@@ -2562,12 +2562,12 @@
     "10": {
       "events": {},
       "links": {},
-      "address": "0xed8b41F32410d44509EBd4C5EEBd842c20CD5c9E",
-      "transactionHash": "0xb88ab68fd622cdd727498edee01b23ebf5461675efad006f40048e8115c961b1"
+      "address": "0x05F2DFBaFc140066871953BcEBEb56a06d4ecBe2",
+      "transactionHash": "0x6240f0d949262a5db86f2e2275bca037f14a78c1ec585cce9bfc94344cf97225"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-08-09T13:41:38.811Z",
+  "updatedAt": "2020-08-16T10:31:44.378Z",
   "networkType": "quorum",
   "devdoc": {
     "methods": {}

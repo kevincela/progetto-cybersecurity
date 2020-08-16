@@ -1,13 +1,12 @@
-const Web3 = require("web3");
 const fs = require("fs");
 const IpfsHttpClient = require('ipfs-http-client');
 const path = require("path");
 const exif = require("exif").ExifImage;
 const { globSource } = IpfsHttpClient;
+const { exit } = require("process");
 const mongoose = require("mongoose");
 const config = require("../server/config");
-const Contract = require("../server/models/Contract");
-const { exit } = require("process");
+const ImageStorageService = require("../server/services/imagestorageservice");
 
 function getExifData(path) {
     return new Promise((resolve, reject) => {
@@ -25,15 +24,10 @@ function getExifData(path) {
 }
 
 async function uploadImages() {
-    const ImageStorage = JSON.parse(fs.readFileSync("../build/contracts/ImageStorage.json"));
-    await mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
     const ipfs = IpfsHttpClient();
+    await mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    let web3 = new Web3("http://localhost:22001");
-    let accounts = await web3.eth.getAccounts();
-    let contract = await Contract.findOne({ name: "ImageStorage" });
-    console.log(contract.address);
-    let ImageStorageContract = new web3.eth.Contract(ImageStorage.abi, contract.address);
+    let imageStorageService = await ImageStorageService.getInstance({host: "http://localhost:22001"});
 
     let imageHashes = [];
     let fileNames = [];
@@ -56,11 +50,8 @@ async function uploadImages() {
     console.log(creationDates);
     console.log(fileNames);
     let timestamp = new Date().toISOString();
-    console.log(imageHashes, timestamp);
 
-    let result = await ImageStorageContract.methods
-                                           .storeImages(imageHashes, fileNames, creationDates, timestamp)
-                                           .send({from: accounts[0]});
+    let result = await imageStorageService.storeImages(imageHashes, fileNames, creationDates, timestamp);
 
     console.log(result);
     exit(0);

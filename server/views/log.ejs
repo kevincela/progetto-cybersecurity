@@ -10,7 +10,7 @@
                   <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Account blockchain</th>
-                    <th scope="col">Hash Immagine</th>
+                    <th scope="col">Hash Immagine</th>cemVtp1rUyMBCYCLCPwYGSywBqfQ3dtXFzb5fJoMP9i6
                     <th scope="col">Data</th>
                     <th scope="col">Esito</th>
                   </tr>
@@ -19,8 +19,8 @@
                   <% for(let item of log) { %> 
                   <tr>
                     <th scope="row"><%= item.id %></th>
-                    <td><%= item.caller %></td>
-                    <td><%= item.hashImmagine %></td>
+                    <td style="word-break:break-all;"><%= item.caller %></td>
+                    <td style="word-break:break-all;"><%= item.hashImmagine %></td>
                     <td><%= convertDate(item.timestamp) %></td>
                     <td><%= item.result == 0 ? "ERROR" : "SUCCESS" %></td>
                   </tr>

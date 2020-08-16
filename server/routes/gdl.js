@@ -9,7 +9,7 @@ const GDLService = require("../services/gdlservice");
 const logger = require("../logger");
 
 router.get("/", isLoggedIn, async (req, res) => {
-    let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
+    let giornaleDeiLavoriService = await GDLService.getInstance({account: req.session.user.account});
     let items = await giornaleDeiLavoriService.getGiornale();
     res.render("gdl", { 
         title: "Giornale dei lavori", 
@@ -21,7 +21,7 @@ router.get("/", isLoggedIn, async (req, res) => {
 });
 
 router.get("/:id", isLoggedIn, async (req, res) => {
-    let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
+    let giornaleDeiLavoriService = await GDLService.getInstance({account: req.session.user.account});
     try {
         let item = await giornaleDeiLavoriService.getItem(req.params.id);
         res.render("gdl_show", { title: "Descrizione GDL", user: req.session.user, item: item, convertDate: convertDate });
@@ -34,8 +34,8 @@ router.get("/:id", isLoggedIn, async (req, res) => {
 router.post("/invoke/", isLoggedIn, async (req, res) => {
     try {
         logger.info(`Invocazione del servizio di fotogrammetria da parte di ${req.session.user.username} con account ${req.session.user.account}`);
-        let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
-        let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
+        let photogrammetryLogService = await PhotogrammetryLogService.getInstance({account: req.session.user.account});
+        let imagestorageservice = await ImageStorageService.getInstance({account: req.session.user.account});
         let measures = null;
         let image = await imagestorageservice.getImageFromHash(req.body.hash);
 
@@ -64,9 +64,9 @@ router.post("/invoke/", isLoggedIn, async (req, res) => {
 
 router.post("/add", isLoggedIn, async (req, res) => {
     try {
-        let giornaleDeiLavoriService = await GDLService.getInstance(req.session.user.account);
-        let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
-        let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
+        let giornaleDeiLavoriService = await GDLService.getInstance({account: req.session.user.account});
+        let photogrammetryLogService = await PhotogrammetryLogService.getInstance({account: req.session.user.account});
+        let imagestorageservice = await ImageStorageService.getInstance({account: req.session.user.account});
 
         let image = await imagestorageservice.getImageFromHash(req.body.hash);
         if(image.state != 1) {

@@ -6,7 +6,7 @@ const convertDate = require("../utils/convertdate");
 const PhotogrammetryLogService = require("../services/photogrammetrylogservice");
 
 router.get("/", isLoggedIn, async (req, res) => {
-    let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
+    let imagestorageservice = await ImageStorageService.getInstance({account: req.session.user.account});
     let images = await imagestorageservice.getImages();
     res.render("dimages", { 
         title: "Immagini scattate dal drone", 
@@ -18,8 +18,8 @@ router.get("/", isLoggedIn, async (req, res) => {
 });
 
 router.get("/:hash", isLoggedIn, async (req, res) => {
-    let imagestorageservice = await ImageStorageService.getInstance(req.session.user.account);
-    let photogrammetryLogService = await PhotogrammetryLogService.getInstance(req.session.user.account);
+    let imagestorageservice = await ImageStorageService.getInstance({account: req.session.user.account});
+    let photogrammetryLogService = await PhotogrammetryLogService.getInstance({account: req.session.user.account});
     try {
         let image = await imagestorageservice.getImageFromHash(req.params.hash);
         let measure = ""
