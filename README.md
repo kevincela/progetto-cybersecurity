@@ -104,5 +104,5 @@ http://localhost:3000/
 ```
 è possibile utilizzare la web app.
 
-# Progettazione e implementazione del progetto
+# Altri dettagli
 Al seguente [link](https://github.com/kevincela/progetto-cybersecurity/blob/master/relazione.pdf) è possibile trovare informazioni dettagliate riguardo la progettazione e l'implementazione di questo progetto.
