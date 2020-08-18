@@ -3,20 +3,20 @@ const bcrypt = require("bcrypt");
 const config = require("./server/config");
 const Web3 = require("web3");
 const mongoose = require("mongoose");
+const { exitOnError } = require("winston");
 
-async function createUser() {
-    const myArgs = process.argv.slice(2);
+function createUser() {
+    const args = process.argv.slice(2);
+
+    const username = args[0];
+    const password = args[1];
+    const saltRounds = 10;
 
     mongoose.connect(config.mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
     let web3 = new Web3("http://localhost:22000");
-    let accounts = await web3.eth.getAccounts();
-
-    const username = myArgs[0];
-    const password = myArgs[1];
-    const saltRounds = 10;
-
-    bcrypt.genSalt(saltRounds, (err, salt) => {
+    web3.eth.getAccounts().then(accounts => {
+      bcrypt.genSalt(saltRounds, (err, salt) => {
         if(!err) {
             bcrypt.hash(password, salt, (err, hash) => {
                 if(!err) {
@@ -31,13 +31,20 @@ async function createUser() {
                     } else {
                       console.log("Utente creato:");
                       console.log(user);
+                      process.exit();
                     }
                   });
                 }
               });
         } else {
             console.log(err);
+            process.exit();
         }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      process.exit();
     });
 }
 
