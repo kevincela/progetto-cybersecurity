@@ -7409,12 +7409,13 @@
     "10": {
       "events": {},
       "links": {},
-      "address": "0xd27ec19fe70D3ad569e18677819Aa762Cc26B476",
-      "transactionHash": "0x14611c02ace00206e1db94452ea074692e6be4ef6dfc7b9d5c19de73146f81bc"
+      "address": "0x65dB38ef87466d26F429f052447bf23175974810",
+      "transactionHash": "0x24748d14260373839e090854ab5bc9be39c9142cfc1aaa2358b3349052ae0d76"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-08-16T14:07:23.516Z",
+  "updatedAt": "2020-09-04T07:29:07.193Z",
+  "networkType": "quorum",
   "devdoc": {
     "methods": {}
   },

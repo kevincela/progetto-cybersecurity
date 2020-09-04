@@ -2966,12 +2966,13 @@
     "10": {
       "events": {},
       "links": {},
-      "address": "0x05F2DFBaFc140066871953BcEBEb56a06d4ecBe2",
-      "transactionHash": "0x6240f0d949262a5db86f2e2275bca037f14a78c1ec585cce9bfc94344cf97225"
+      "address": "0x23A47Bc614CBae0e073AafF99D0bB8ec361248C3",
+      "transactionHash": "0x751e76359c4f05bba93038b98716b66cf6a02d1aba2fea9065a33d774aee53e8"
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2020-08-16T14:07:23.524Z",
+  "updatedAt": "2020-09-04T07:29:07.204Z",
+  "networkType": "quorum",
   "devdoc": {
     "methods": {}
   },

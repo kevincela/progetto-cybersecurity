@@ -100,5 +100,21 @@ http://localhost:3000/
 ```
 è possibile utilizzare la web app.
 
+## HTTPS
+
+Nella repository è anche presente, a scopo dimostrativo, una versione del server che supporta il protocollo HTTPS, garantendo uno scambio sicuro dei dati tramite una connessione TLS, evitando una possibile intercettazione dei dati in arrivo al server. I file relativi alla chiave privata e al certificato sono presenti nella root del progetto (`localhost+2-key.pem` e `localhost+2.pem`).
+
+Per avviare il server con supporto al protocollo https, è innanzitutto necessario installare il tool [mkcert](https://github.com/FiloSottile/mkcert), che permette al client di riconoscere il certificato, che è stato generato tramite questo strumento. Dopodichè, spostandosi nella cartella **./server**, è necessario eseguire il comando
+```
+node index-https.js
+```
+per l'avvio del server. A questo punto, andando nel browser e digitando l'indirizzo 
+```
+https://localhost:3000/
+```
+è possibile utilizzare la web app.
+
+NOTA: nel caso in cui si volesse utilizzare il server http dopo aver utilizzato la versione https, è necessario eliminare tutti i dati relativi al sito per evitare problemi con il salvataggio di nuovi cookie. L'operazione, nel caso di browser Google Chrome, può essere eseguita dalla sezione "Clear Storage", presente sulla tab "Application" dello strumento Ispezione Pagina.
+
 # Progettazione e implementazione del progetto
 Al seguente [link](https://github.com/kevincela/progetto-cybersecurity/blob/master/relazione.pdf) è possibile trovare informazioni dettagliate riguardo la progettazione e l'implementazione di questo progetto.
