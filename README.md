@@ -104,13 +104,13 @@ http://localhost:3000/
 ```
 è possibile utilizzare la web app.
 
-## HTTPS
+#### Avvio della web app - HTTPS
 
-Nella repository è anche presente, a scopo dimostrativo, una versione del server che supporta il protocollo HTTPS, garantendo uno scambio sicuro dei dati tramite una connessione TLS, evitando una possibile intercettazione dei dati in arrivo al server.
+Nel repository è anche presente, a scopo dimostrativo, una versione del server che supporta il protocollo HTTPS, garantendo uno scambio sicuro dei dati tramite una connessione TLS, evitando una possibile intercettazione dei dati in arrivo al server.
 
-Per avviare il server con supporto al protocollo HTTPS, è innanzitutto necessario installare (o utilizzare i binari precompilati presenti in questo [link](https://github.com/FiloSottile/mkcert/releases)) il tool [mkcert](https://github.com/FiloSottile/mkcert), per installare il certificato relativo al CA e per generare il certificato relativo al server HTTPS, certificato dal CA che è stato inizializzato.
+Per avviare il server con supporto al protocollo HTTPS, è innanzitutto necessario installare il tool [mkcert](https://github.com/FiloSottile/mkcert), per installare il certificato relativo al CA e per generare il certificato relativo al server HTTPS, certificato dal CA che è stato inizializzato. È possibile utilizzare i binari precompilati presenti in questo [link](https://github.com/FiloSottile/mkcert/releases) al posto dell'installazione.
 
-Dopo averlo installato, è necessario innanzitutto installare il certificato relativo al CA nel sistema operativo tramite il comando
+Dopo averlo installato, è necessario innanzitutto installare il certificato relativo al CA nel sistema operativo tramite il comando:
 ```
 mkcert -install
 ```
