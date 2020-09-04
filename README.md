@@ -106,9 +106,22 @@ http://localhost:3000/
 
 ## HTTPS
 
-Nella repository è anche presente, a scopo dimostrativo, una versione del server che supporta il protocollo HTTPS, garantendo uno scambio sicuro dei dati tramite una connessione TLS, evitando una possibile intercettazione dei dati in arrivo al server. I file relativi alla chiave privata e al certificato sono presenti nella root del progetto (`localhost+2-key.pem` e `localhost+2.pem`).
+Nella repository è anche presente, a scopo dimostrativo, una versione del server che supporta il protocollo HTTPS, garantendo uno scambio sicuro dei dati tramite una connessione TLS, evitando una possibile intercettazione dei dati in arrivo al server.
 
-Per avviare il server con supporto al protocollo https, è innanzitutto necessario installare il tool [mkcert](https://github.com/FiloSottile/mkcert), che permette al client di riconoscere il certificato, che è stato generato tramite questo strumento. Dopodichè, spostandosi nella cartella **./server**, è necessario eseguire il comando
+Per avviare il server con supporto al protocollo HTTPS, è innanzitutto necessario installare il tool [mkcert](https://github.com/FiloSottile/mkcert), per installare il certificato relativo al CA e per generare il certificato relativo al server HTTPS, certificato dal CA che è stato inizializzato.
+
+Dopo averlo installato, è necessario innanzitutto installare il certificato relativo al CA nel sistema operativo tramite il comando
+```
+mkcert -install
+```
+
+Dopodichè, nella root del progetto, è necessario eseguire il comando
+```
+mkcert localhost 127.0.0.1 ::1
+```
+per generare il certificato e la chiave privata relativi al localhost (`localhost+2.pem` e `localhost+2-key.pem`), usati dal server per inizializzare la connessione TLS.
+
+Dopodichè, spostandosi nella cartella **./server**, è necessario eseguire il comando
 ```
 node index-https.js
 ```
