@@ -4,10 +4,16 @@ const config = require("./server/config");
 const Web3 = require("web3");
 const mongoose = require("mongoose");
 const { exitOnError } = require("winston");
+const args = process.argv.slice(2);
+
+function check() {
+  if ((!args[0] || !args[1])) {
+    console.log("Check the args!")
+    process.exit()}
+
+}
 
 function createUser() {
-    const args = process.argv.slice(2);
-
     const username = args[0];
     const password = args[1];
     const saltRounds = 10;
@@ -48,4 +54,5 @@ function createUser() {
     });
 }
 
+check();
 createUser();

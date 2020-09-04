@@ -43,9 +43,13 @@ A questo punto, è necessario decomporre il file tramite:
 ```bash
 tar -xvzf go-ipfs_v0.6.0_linux-amd64.tar.gz
 ```
-ed eseguire quest'ultimo comando:
+ed effettuare l'installazione:
 ```bash
-cd go-ipfs && sudo bash install.sh && ipfs init && ipfs daemon
+cd go-ipfs && sudo bash install.sh && ipfs init
+```
+Infine, avviare il daemone:
+```bash
+ipfs daemon
 ```
 Ulteriori informazioni sono disponibili al seguente [link](https://docs.ipfs.io/how-to/command-line-quick-start/#install-ipfs).
 
@@ -83,15 +87,15 @@ NB: le immagini caricate dal drone devono essere complete di metadati altrimenti
 
 ## Creazione di un account associato al direttore dei lavori
 
-Prima di poter avviare la web app è necessario innanzitutto creare uno o più account che possano essere utilizzati, da parte del direttori dei lavori, per il corretto funzionamento del servizio. Nella cartella di root del progetto è presente uno script, denominato `createUser.js`, che consente la creazione di un account per l'utente. Dati lo username e la password, lo script procederà all'inserimento dell'utente, con la password opportunamente criptata tramite la funzione di hash *bcrypt*, e inserirà, assieme all'utente, anche il rispettivo account della blockchain, corrispondente di default all'account associato al primo nodo della rete. Il comando per eseguire lo script è il seguente:
-```
+Prima di poter avviare la web app è necessario innanzitutto creare uno o più account che possano essere utilizzati, da parte del direttori dei lavori, per il corretto funzionamento del servizio. Nella cartella di root del progetto è presente uno script, denominato `createUser.js`, che consente la creazione di un account per l'utente. Dati lo username e la password, lo script procederà all'inserimento dell'utente, con la password opportunamente criptata tramite la funzione di hash *bcrypt*, e inserirà, assieme all'utente, anche il rispettivo account della blockchain (necessita di Quorum avviato in locale), corrispondente di default all'account associato al primo nodo della rete. Il comando per eseguire lo script è il seguente:
+```bash
 node createUser.js <username> <password>
 ```
 
 ## Avvio della web app
 
 Una volta che sono state installate correttamente tutte le dipendenze della web app, e dopo aver caricato le immagini e creato gli account, da terminale bisogna trovarsi nella cartella **./server** ed eseguire il comando 
-```
+```bash
 node index.js
 ```
 per l'avvio del server. A questo punto, andando nel browser e digitando l'indirizzo 
@@ -116,5 +120,5 @@ https://localhost:3000/
 
 NOTA: nel caso in cui si volesse utilizzare il server http dopo aver utilizzato la versione https, è necessario eliminare tutti i dati relativi al sito per evitare problemi con il salvataggio di nuovi cookie. L'operazione, nel caso di browser Google Chrome, può essere eseguita dalla sezione "Clear Storage", presente sulla tab "Application" dello strumento Ispezione Pagina.
 
-# Progettazione e implementazione del progetto
+# Altri dettagli
 Al seguente [link](https://github.com/kevincela/progetto-cybersecurity/blob/master/relazione.pdf) è possibile trovare informazioni dettagliate riguardo la progettazione e l'implementazione di questo progetto.
