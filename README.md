@@ -65,7 +65,7 @@ npm install -g truffle
 ```
 Dopo averlo installato, è necessario posizionarsi nella cartella principale del progetto ed eseguire il comando:
 ```bash
-truffle migrate
+truffle migrate --reset
 ```
 NOTA: per poter eseguire la migrazione è necessario aver settato correttamente il file di configurazione, così come il database MongoDB, in quanto gli indirizzi dei contratti verranno salvati in esso. Alternativamente, è possibile reperire l'indirizzo in cui il contratto è stato dispiegato utilizzando la console di truffle:
 ```bash
